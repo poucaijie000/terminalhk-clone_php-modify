@@ -149,60 +149,9 @@ include 'includes/header.php';
         <hr class="game-hr">
 
         <!-- === 產品比較 === -->
-        <section id="compare" class="game-section">
-            <h2 class="game-h2 text-center">產品比較</h2>
-            <p class="game-subtitle text-center">GameBox3 與 GameBox3+</p>
+        <div id="compare" aria-hidden="true"></div>
 
-            <div class="row g-4 justify-content-center">
-
-                <div class="col-md-6 col-lg-5">
-                    <div class="card compare-card h-100">
-                        <div class="compare-img-wrap">
-                            <img src="assets/images/gamebox/C450M.jpg" alt="GameBox3 簡約版機箱">
-                        </div>
-                        <div class="card-body text-center d-flex flex-column">
-                            <h3 class="compare-name">GameBox3</h3>
-                            <p class="compare-price">$3799</p>
-                            <ul class="compare-list">
-                                <li>Intel® Core™ i3 四核心處理器</li>
-                                <li>NVIDIA GeForce GTX 1650 2GB</li>
-                                <li>1TB HDD 硬碟</li>
-                                <li>8GB DDR4 2666MHz 記憶體</li>
-                                <li>簡約版・全鋼化玻璃側板</li>
-                            </ul>
-                            <button type="button" class="btn btn-primary mt-auto" data-bs-toggle="modal" data-bs-target="#stockModal">
-                                前往購買(缺貨)
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-5">
-                    <div class="card compare-card h-100">
-                        <div class="compare-img-wrap">
-                            <img src="assets/images/gamebox/SF30.jpg" alt="GameBox3+ RGB四風扇版機箱">
-                        </div>
-                        <div class="card-body text-center d-flex flex-column">
-                            <h3 class="compare-name">GameBox3+</h3>
-                            <p class="compare-price">$6699</p>
-                            <ul class="compare-list">
-                                <li>Intel® Core™ i5 六核心處理器</li>
-                                <li>NVIDIA GeForce RTX 2060 6GB</li>
-                                <li>1TB HDD + 240GB SSD</li>
-                                <li>16GB DDR4 2666MHz 記憶體</li>
-                                <li>RGB四風扇版・全鋼化玻璃側板</li>
-                            </ul>
-                            <button type="button" class="btn btn-primary mt-auto" data-bs-toggle="modal" data-bs-target="#stockModal">
-                                前往購買(缺貨)
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <hr class="game-hr">
+<hr class="game-hr">
 
         <!-- === 技術規格 === -->
         <section id="spec" class="game-section">

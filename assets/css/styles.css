@@ -955,3 +955,8 @@ body {
         width: 100%;
     }
 }
+
+/* GameBox 技術規格：兩款產品之間的垂直分隔線 */
+.gamebox-page #spec table td:nth-last-child(2) {
+  border-right: 1px solid #dee2e6;
+}
