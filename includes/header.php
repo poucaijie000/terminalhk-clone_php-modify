@@ -17,18 +17,24 @@
     <!-- 頂部資訊欄 -->
     <div class="top-bar">
         <div class="container d-flex justify-content-end align-items-center gap-4">
-            <a href="contact.php" class="d-flex align-items-center text-decoration-none text-muted">
-                <i class="bi bi-geo-alt-fill icon-green"></i> 客服部地址
+            <a href="contact.php#customer-service" class="d-flex align-items-center text-decoration-none text-muted">
+                <!-- 替換為你的 location.png 路徑 -->
+                 <img src="assets/images/header_miniicon/location.png" alt="客服部地址" class="me-2" style="height: 16px; width: auto;">
+                 客服部地址
             </a>
-            <span class="d-flex align-items-center">
-                <i class="bi bi-telephone-fill icon-green"></i> 37047358
-            </span>
-            <span class="d-flex align-items-center">
-                <i class="bi bi-whatsapp icon-green"></i> 64066698
-            </span>
+            <a href="contact.php#customer-service" class="d-flex align-items-center text-decoration-none text-muted">
+                <img src="assets/images/header_miniicon/telphone.png" alt="37047358" class="me-2" style="height: 16px; width: auto;">
+                37047358
+            </a>
+            <a href="contact.php#customer-service" class="d-flex align-items-center text-decoration-none text-muted">
+                <img src="assets/images/header_miniicon/wts.png" alt="64066698" class="me-2" style="height: 16px; width: auto;">
+                64066698
+            </a>
             <a href="#">訂單</a>
             <a href="#">幫助</a>
-            <a href="#">聯絡</a>
+            <a href="contact.php" class="d-flex align-items-center text-decoration-none text-muted">
+                <i></i> 聯絡
+            </a>
             <a href="#">關於</a>
             <!-- 登錄/註冊下拉選單 -->
 <div class="dropdown">
@@ -122,7 +128,7 @@ if ($current_page == '' || $current_page == 'terminalhk_project') {
         
         <!-- 常見問題 (假設檔案為 faq.php) -->
         <li class="nav-item">
-            <a class="nav-link <?php echo ($current_page == 'faq.php') ? 'active' : ''; ?>" href="#">常見問題</a>
+            <a class="nav-link <?php echo ($current_page == 'faq.php') ? 'active' : ''; ?>" href="faq.php">常見問題</a>
         </li>
         
         <!-- 聯絡我們 (假設檔案為 contact.php) -->

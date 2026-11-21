@@ -8,7 +8,7 @@ include 'includes/header.php';
     
     <!-- 麵包屑導航 -->
     <nav aria-label="breadcrumb" class="mb-4">
-        <ol class="breadcrumb">
+        <ol class="breadcrumb" id="breadcrumb">
             <li class="breadcrumb-item"><a href="index.php" class="text-decoration-none text-muted">首頁</a></li>
             <li class="breadcrumb-item active text-dark" aria-current="page">聯絡我們</li>
         </ol>
@@ -19,10 +19,10 @@ include 'includes/header.php';
         
         <!-- === 左側選單 (佔 3 欄) === -->
         <div class="col-lg-3 border-end py-4">
-            <ul class="list-unstyled contact-menu mb-0">
-                <li><a href="#" class="active text-decoration-none">客戶服務</a></li>
-                <li><a href="#" class="text-decoration-none">商業資訊</a></li>
-                <li><a href="#" class="text-decoration-none">問題回饋</a></li>
+            <ul class="list-unstyled contact-menu mb-0" id="contactMenu">
+                <li><a href="#customer-service" class="active text-decoration-none" data-category="客戶服務">客戶服務</a></li>
+                <li><a href="#commercial-info" class="text-decoration-none" data-category="商業資訊">商業資訊</a></li>
+                <li><a href="#feedback" class="text-decoration-none" data-category="問題回饋">問題回饋</a></li>
             </ul>
         </div>
 
@@ -151,6 +151,47 @@ include 'includes/header.php';
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const menuItems = document.querySelectorAll('#contactMenu a');
+    const breadcrumb = document.getElementById('breadcrumb');
+
+    // 處理左側選單點擊事件
+    menuItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault(); // 阻止網頁跳轉
+
+            // 1. 移除所有選單的 active class
+            menuItems.forEach(el => el.classList.remove('active'));
+            // 2. 幫當前點擊的選單加上 active class (字體變藍色)
+            this.classList.add('active');
+
+            // 3. 獲取點擊的分類名稱
+            const category = this.getAttribute('data-category');
+
+            // 4. 動態更新麵包屑
+            breadcrumb.innerHTML = `
+                <li class="breadcrumb-item"><a href="index.php" class="text-decoration-none text-muted">首頁</a></li>
+                <li class="breadcrumb-item text-muted">聯絡我們</li>
+                <li class="breadcrumb-item active text-dark" aria-current="page">${category}</li>
+            `;
+            
+            // 5. (可選) 改變網址上的 Hash，讓用戶重新整理也不會丟失狀態
+            window.history.pushState(null, null, '#' + this.getAttribute('href').split('#')[1]);
+        });
+    });
+
+    // 處理「重新整理頁面」時，保持原本點選的分類
+    if (window.location.hash) {
+        const hash = window.location.hash;
+        const targetItem = document.querySelector(`#contactMenu a[href="${hash}"]`);
+        if (targetItem) {
+            targetItem.click();
+        }
+    }
+});
+</script>
 
 <?php
 // 引入底部
