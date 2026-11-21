@@ -1,3 +1,113 @@
+<?php
+declare(strict_types=1);
+/**
+ * Group: [Group Number]
+ * Members: [Member Name] ([Student ID]), [Member Name] ([Student ID])
+ * Date: 2026-11-22
+ * Assignment: Final Project Part II - TerminalHK
+ *
+ * Home page sections. The carousel and side cards stay static, while the
+ * recommended, new arrival and hot sale product rows are read from
+ * data/items.xml through the shared XML layer.
+ */
+
+require_once __DIR__ . '/../includes/helpers.php';
+require_once __DIR__ . '/../includes/xml.php';
+
+$itemsXml = load_xml(ITEMS_XML);
+$items = $itemsXml instanceof SimpleXMLElement ? all_items($itemsXml) : [];
+
+/**
+ * Resolve a product image and reject paths outside assets/images.
+ */
+$itemImage = static function (SimpleXMLElement $item): string {
+    $image = (string) $item->image;
+    if ($image === '' || strpos($image, 'assets/images/') !== 0 || !is_file(dirname(__DIR__) . '/' . $image)) {
+        return 'assets/images/logo/logo.png';
+    }
+
+    return $image;
+};
+
+/**
+ * Resolve the alt text for a product image.
+ */
+$itemAlt = static function (SimpleXMLElement $item): string {
+    $alt = trim((string) $item->image_alt);
+    return $alt !== '' ? $alt : (string) $item->name;
+};
+
+/**
+ * Build the product detail URL for a card.
+ */
+$itemUrl = static function (SimpleXMLElement $item): string {
+    return 'product_detail.php?id=' . urlencode((string) $item->id);
+};
+
+// Recommended: featured items first, then fill the four-card row.
+$recommended = [];
+foreach ($items as $item) {
+    if ((int) $item->featured === 1) {
+        $recommended[] = $item;
+    }
+}
+foreach ($items as $item) {
+    if (count($recommended) >= 4) {
+        break;
+    }
+
+    $alreadySelected = false;
+    foreach ($recommended as $selected) {
+        if ($selected === $item) {
+            $alreadySelected = true;
+            break;
+        }
+    }
+
+    if (!$alreadySelected) {
+        $recommended[] = $item;
+    }
+}
+$recommended = array_slice($recommended, 0, 4);
+
+// New arrivals: newest created_at first.
+$newItems = $items;
+usort($newItems, static function (SimpleXMLElement $a, SimpleXMLElement $b): int {
+    $dateOrder = strcmp((string) $b->created_at, (string) $a->created_at);
+    if ($dateOrder !== 0) {
+        return $dateOrder;
+    }
+
+    return strcmp((string) $a->name, (string) $b->name);
+});
+$newItems = array_slice($newItems, 0, 5);
+
+// Hot sales: items marked hot="1", then fill the five-card row.
+$hotItems = [];
+foreach ($items as $item) {
+    if ((int) $item->hot === 1) {
+        $hotItems[] = $item;
+    }
+}
+foreach ($items as $item) {
+    if (count($hotItems) >= 5) {
+        break;
+    }
+
+    $alreadySelected = false;
+    foreach ($hotItems as $selected) {
+        if ($selected === $item) {
+            $alreadySelected = true;
+            break;
+        }
+    }
+
+    if (!$alreadySelected) {
+        $hotItems[] = $item;
+    }
+}
+$hotItems = array_slice($hotItems, 0, 5);
+?>
     <!-- === 主體內容：輪播圖與側邊欄 === -->
     <main class="container my-4">
         <div class="row">
@@ -45,7 +155,7 @@
             <!-- 右側邊欄 (佔 3 欄) -->
             <div class="col-lg-3">
                 <div class="d-flex flex-column gap-3">
-                    <a href="#" class="text-decoration-none">
+                    <a href="products.php" class="text-decoration-none">
                         <div class="card side-card text-center py-4">
                             <img src="assets/images/sideimg/rightside01.png" class="card-img-top mx-auto" alt="電腦硬件">
                             <div class="card-body p-0 mt-3">
@@ -54,7 +164,7 @@
                         </div>
                     </a>
                     
-                    <a href="#" class="text-decoration-none">
+                    <a href="build.php#builder-section" class="text-decoration-none">
                         <div class="card side-card text-center py-4">
                             <img src="assets/images/sideimg/rightside02.png" class="card-img-top mx-auto" alt="自選砌機">
                             <div class="card-body p-0 mt-3">
@@ -67,235 +177,141 @@
         </div>
     </main>
 
-    <!-- === 推薦產品區塊 === -->
+    <!-- === 推薦產品區塊：featured items from data/items.xml === -->
     <section class="container my-5">
         <h2 class="section-title mb-3">推薦產品</h2>
-        
-        <div class="row g-0 border-top border-start">
-            <!-- 產品 1 -->
-            <div class="col-md-3">
-                <div class="card h-100 border-0 border-end border-bottom rounded-0">
-                    <div class="p-3 text-center">
-                        <img src="assets/images/recommend/product1.jpeg" class="img-fluid product-img" alt="產品1">
-                    </div>
-                    <div class="card-body pt-0 px-3 pb-3 d-flex flex-column">
-                        <h5 class="card-title product-title">【ROG潮競白2.0】AMD 9800X3D + ROG RTX5080 16GB 全塔式全景電競組合</h5>
-                        <div class="mt-auto d-flex align-items-center gap-2">
-                            <span class="badge bg-danger rounded-0 px-2 py-1">SALES</span>
-                            <span class="text-danger fs-5 fw-bold">$36599</span>
-                            <span class="text-muted text-decoration-line-through small">$39371</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- 產品 2 -->
-            <div class="col-md-3">
-                <div class="card h-100 border-0 border-end border-bottom rounded-0">
-                    <div class="p-3 text-center">
-                        <img src="assets/images/recommend/product2.jpeg" class="img-fluid product-img" alt="產品2">
-                    </div>
-                    <div class="card-body pt-0 px-3 pb-3 d-flex flex-column">
-                        <h5 class="card-title product-title">【再一波送MON】Intel 14400F + RX 9060 XT 16GB 2K電競優惠組合</h5>
-                        <div class="mt-auto d-flex align-items-center gap-2">
-                            <span class="badge bg-danger rounded-0 px-2 py-1">SALES</span>
-                            <span class="text-danger fs-5 fw-bold">$9299</span>
-                            <span class="text-muted text-decoration-line-through small">$12320</span>
+        <?php if ($recommended === []): ?>
+            <div class="alert alert-info">暫無推薦商品。</div>
+        <?php else: ?>
+            <div class="row g-0 border-top border-start">
+                <?php foreach ($recommended as $item): ?>
+                    <?php $oldPrice = (float) $item->old_price; ?>
+                    <div class="col-md-3">
+                        <div class="card h-100 border-0 border-end border-bottom rounded-0">
+                            <a href="<?php echo e($itemUrl($item)); ?>" class="text-decoration-none">
+                                <div class="p-3 text-center">
+                                    <img
+                                        src="<?php echo e($itemImage($item)); ?>"
+                                        class="img-fluid product-img"
+                                        alt="<?php echo e($itemAlt($item)); ?>"
+                                        loading="lazy"
+                                    >
+                                </div>
+                            </a>
+                            <div class="card-body pt-0 px-3 pb-3 d-flex flex-column">
+                                <h5 class="card-title product-title">
+                                    <a href="<?php echo e($itemUrl($item)); ?>" class="text-dark text-decoration-none">
+                                        <?php echo e((string) $item->name); ?>
+                                    </a>
+                                </h5>
+                                <div class="mt-auto d-flex align-items-center gap-2">
+                                    <?php if ($oldPrice > (float) $item->price): ?>
+                                        <span class="badge bg-danger rounded-0 px-2 py-1">SALES</span>
+                                    <?php endif; ?>
+                                    <span class="text-danger fs-5 fw-bold">
+                                        <?php echo e(format_price($item->price)); ?>
+                                    </span>
+                                    <?php if ($oldPrice > (float) $item->price): ?>
+                                        <span class="text-muted text-decoration-line-through small">
+                                            <?php echo e(format_price($item->old_price)); ?>
+                                        </span>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php endforeach; ?>
             </div>
-
-            <!-- 產品 3 -->
-            <div class="col-md-3">
-                <div class="card h-100 border-0 border-end border-bottom rounded-0">
-                    <div class="p-3 text-center">
-                        <img src="assets/images/recommend/product3.jpeg" class="img-fluid product-img" alt="產品3">
-                    </div>
-                    <div class="card-body pt-0 px-3 pb-3 d-flex flex-column">
-                        <h5 class="card-title product-title">【限量】【2K電競主題】Intel 14400F + ASUS DUAL 5070 12GB 高性價比神機優惠組合</h5>
-                        <div class="mt-auto d-flex align-items-center gap-2">
-                            <span class="badge bg-danger rounded-0 px-2 py-1">SALES</span>
-                            <span class="text-danger fs-5 fw-bold">$12999</span>
-                            <span class="text-muted text-decoration-line-through small">$14611</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 產品 4 -->
-            <div class="col-md-3">
-                <div class="card h-100 border-0 border-end border-bottom rounded-0">
-                    <div class="p-3 text-center">
-                        <img src="assets/images/recommend/product4.jpeg" class="img-fluid product-img" alt="產品4">
-                    </div>
-                    <div class="card-body pt-0 px-3 pb-3 d-flex flex-column">
-                        <h5 class="card-title product-title">【經濟實惠之選】Intel 14400F + RTX 3050 6GB 人人有機打優惠組合</h5>
-                        <div class="mt-auto d-flex align-items-center gap-2">
-                            <span class="badge bg-danger rounded-0 px-2 py-1">SALES</span>
-                            <span class="text-danger fs-5 fw-bold">$6199</span>
-                            <span class="text-muted text-decoration-line-through small">$6647</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php endif; ?>
     </section>
 
-    <!-- === 新品上架區塊 === -->
+    <!-- === 新品上架區塊：newest created_at from data/items.xml === -->
     <section class="container my-5">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h2 class="section-title m-0">新品上架</h2>
-            <a href="#" class="text-decoration-none text-muted">顯示更多》</a>
+            <a href="products.php" class="text-decoration-none text-muted">顯示更多》</a>
         </div>
-        
-        <div class="row g-0 border-top border-start">
-            <!-- 新品 1 -->
-            <div class="col">
-                <div class="card h-100 border-0 border-end border-bottom rounded-0">
-                    <div class="p-4 text-center">
-                        <img src="assets/images/new_arrivals/new1.png" class="img-fluid product-img" alt="新品1">
-                    </div>
-                    <div class="card-body pt-0 px-3 pb-3">
-                        <p class="card-text text-dark small">ASUS NUC 13 Pro Slim Mini PC (Intel i5-13420H / Wi-Fi 6E AX211 / 16GB RAM / 512GB)</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- 新品 2 -->
-            <div class="col">
-                <div class="card h-100 border-0 border-end border-bottom rounded-0">
-                    <div class="p-4 text-center">
-                        <img src="assets/images/new_arrivals/new2.png" class="img-fluid product-img" alt="新品2">
+        <?php if ($newItems === []): ?>
+            <div class="alert alert-info">暫無新品。</div>
+        <?php else: ?>
+            <div class="row g-0 border-top border-start">
+                <?php foreach ($newItems as $item): ?>
+                    <div class="col">
+                        <div class="card h-100 border-0 border-end border-bottom rounded-0">
+                            <a href="<?php echo e($itemUrl($item)); ?>" class="text-decoration-none">
+                                <div class="p-4 text-center">
+                                    <img
+                                        src="<?php echo e($itemImage($item)); ?>"
+                                        class="img-fluid product-img"
+                                        alt="<?php echo e($itemAlt($item)); ?>"
+                                        loading="lazy"
+                                    >
+                                </div>
+                            </a>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <p class="card-text text-dark small mb-1">
+                                    <a href="<?php echo e($itemUrl($item)); ?>" class="text-dark text-decoration-none">
+                                        <?php echo e((string) $item->name); ?>
+                                    </a>
+                                </p>
+                                <p class="text-muted small mb-0">
+                                    <?php echo e(format_price($item->price)); ?>
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body pt-0 px-3 pb-3">
-                        <p class="card-text text-dark small">Okinos AQUA 5 VISTA MATX</p>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
-
-            <!-- 新品 3 -->
-            <div class="col">
-                <div class="card h-100 border-0 border-end border-bottom rounded-0">
-                    <div class="p-4 text-center">
-                        <img src="assets/images/new_arrivals/new3.png" class="img-fluid product-img" alt="新品3">
-                    </div>
-                    <div class="card-body pt-0 px-3 pb-3">
-                        <p class="card-text text-dark small">Okinos 314 ARGB Compact</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 新品 4 -->
-            <div class="col">
-                <div class="card h-100 border-0 border-end border-bottom rounded-0">
-                    <div class="p-4 text-center">
-                        <img src="assets/images/new_arrivals/new4.jpeg" class="img-fluid product-img" alt="新品4">
-                    </div>
-                    <div class="card-body pt-0 px-3 pb-3">
-                        <p class="card-text text-dark small">Seagate 4TB One Touch with</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 新品 5 -->
-            <div class="col">
-                <div class="card h-100 border-0 border-end border-bottom rounded-0">
-                    <div class="p-4 text-center">
-                        <img src="assets/images/new_arrivals/new5.jpeg" class="img-fluid product-img" alt="新品5">
-                    </div>
-                    <div class="card-body pt-0 px-3 pb-3">
-                        <p class="card-text text-dark small">Seagate 2TB One Touch with</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php endif; ?>
     </section>
 
-    <!-- === 熱賣產品區塊 === -->
+    <!-- === 熱賣產品區塊：hot="1" items from data/items.xml === -->
     <section class="container my-5 pb-5">
         <h2 class="section-title mb-3">熱賣產品</h2>
-        
-        <div class="row g-0 border-top border-start">
-            <!-- 熱賣 1 -->
-            <div class="col">
-                <div class="card h-100 border-0 border-end border-bottom rounded-0">
-                    <div class="p-4 text-center">
-                        <img src="assets/images/hot_sales/hot1.png" class="img-fluid product-img" alt="熱賣1">
-                    </div>
-                    <div class="card-body pt-0 px-3 pb-3 d-flex flex-column">
-                        <h5 class="card-title product-title" style="font-size: 14px;">【現貨】INNO3D GeForce RTX™ 5070 TWIN X2 12GB GDDR7</h5>
-                        <div class="mt-auto">
-                            <span class="text-muted">$7599</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- 熱賣 2 -->
-            <div class="col">
-                <div class="card h-100 border-0 border-end border-bottom rounded-0">
-                    <div class="p-4 text-center">
-                        <img src="assets/images/hot_sales/hot2.png" class="img-fluid product-img" alt="熱賣2">
-                    </div>
-                    <div class="card-body pt-0 px-3 pb-3 d-flex flex-column">
-                        <h5 class="card-title product-title" style="font-size: 14px;">ViewSonic VX2758-4K-PRO-2 Dual Mode 4K160Hz/FHD320Hz Fast IPS 10Bits HDR10 Gaming Monitor</h5>
-                        <div class="mt-auto d-flex align-items-center gap-2">
-                            <span class="badge bg-danger rounded-0 px-2 py-1">SALES</span>
-                            <span class="text-danger fs-5 fw-bold">$2099</span>
-                            <span class="text-muted text-decoration-line-through small">$2299</span>
+        <?php if ($hotItems === []): ?>
+            <div class="alert alert-info">暫無熱賣商品。</div>
+        <?php else: ?>
+            <div class="row g-0 border-top border-start">
+                <?php foreach ($hotItems as $item): ?>
+                    <?php $oldPrice = (float) $item->old_price; ?>
+                    <div class="col">
+                        <div class="card h-100 border-0 border-end border-bottom rounded-0">
+                            <a href="<?php echo e($itemUrl($item)); ?>" class="text-decoration-none">
+                                <div class="p-4 text-center">
+                                    <img
+                                        src="<?php echo e($itemImage($item)); ?>"
+                                        class="img-fluid product-img"
+                                        alt="<?php echo e($itemAlt($item)); ?>"
+                                        loading="lazy"
+                                    >
+                                </div>
+                            </a>
+                            <div class="card-body pt-0 px-3 pb-3 d-flex flex-column">
+                                <h5 class="card-title product-title" style="font-size: 14px;">
+                                    <a href="<?php echo e($itemUrl($item)); ?>" class="text-dark text-decoration-none">
+                                        <?php echo e((string) $item->name); ?>
+                                    </a>
+                                </h5>
+                                <div class="mt-auto d-flex align-items-center gap-2">
+                                    <?php if ($oldPrice > (float) $item->price): ?>
+                                        <span class="badge bg-danger rounded-0 px-2 py-1">SALES</span>
+                                    <?php endif; ?>
+                                    <span class="<?php echo $oldPrice > (float) $item->price ? 'text-danger fw-bold fs-5' : 'text-muted'; ?>">
+                                        <?php echo e(format_price($item->price)); ?>
+                                    </span>
+                                    <?php if ($oldPrice > (float) $item->price): ?>
+                                        <span class="text-muted text-decoration-line-through small">
+                                            <?php echo e(format_price($item->old_price)); ?>
+                                        </span>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php endforeach; ?>
             </div>
-
-            <!-- 熱賣 3 -->
-            <div class="col">
-                <div class="card h-100 border-0 border-end border-bottom rounded-0">
-                    <div class="p-4 text-center">
-                        <img src="assets/images/hot_sales/hot3.png" class="img-fluid product-img" alt="熱賣3">
-                    </div>
-                    <div class="card-body pt-0 px-3 pb-3 d-flex flex-column">
-                        <h5 class="card-title product-title" style="font-size: 14px;">【砌機優惠】ASUS AYW Gaming LC 360 ARGB LCD All-in-one CPU Liquid Cooler - Black</h5>
-                        <div class="mt-auto d-flex align-items-center gap-2">
-                            <span class="badge bg-danger rounded-0 px-2 py-1">SALES</span>
-                            <span class="text-danger fs-5 fw-bold">$899</span>
-                            <span class="text-muted text-decoration-line-through small">$1150</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 熱賣 4 -->
-            <div class="col">
-                <div class="card h-100 border-0 border-end border-bottom rounded-0">
-                    <div class="p-4 text-center">
-                        <img src="assets/images/hot_sales/hot4.jpeg" class="img-fluid product-img" alt="熱賣4">
-                    </div>
-                    <div class="card-body pt-0 px-3 pb-3 d-flex flex-column">
-                        <h5 class="card-title product-title" style="font-size: 14px;">ThermalRight Trofeo Vision LCD 6.86" - White</h5>
-                        <div class="mt-auto">
-                            <span class="text-muted">$259</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 熱賣 5 -->
-            <div class="col">
-                <div class="card h-100 border-0 border-end border-bottom rounded-0">
-                    <div class="p-4 text-center">
-                        <img src="assets/images/hot_sales/hot5.png" class="img-fluid product-img" alt="熱賣5">
-                    </div>
-                    <div class="card-body pt-0 px-3 pb-3 d-flex flex-column">
-                        <h5 class="card-title product-title" style="font-size: 14px;">ASUS NUC 15 Pro Slim Mini PC (Intel® Core™ Ultra 7 255H Processor | Intel Arc Graphics | Wi-Fi 7 BE202 | 16GB DDR5 RAM | 1TB SSD | Wi-Fi7 | Win 11 Home)</h5>
-                        <div class="mt-auto d-flex align-items-center gap-2">
-                            <span class="badge bg-danger rounded-0 px-2 py-1">SALES</span>
-                            <span class="text-danger fs-5 fw-bold">$6899</span>
-                            <span class="text-muted text-decoration-line-through small">$8299</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php endif; ?>
     </section>
