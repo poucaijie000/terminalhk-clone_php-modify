@@ -1,0 +1,24 @@
+<?php
+/**
+ * Group: [Group Number]
+ * Members: [Member Name] ([Student ID]), [Member Name] ([Student ID])
+ * Date: 2026-11-22
+ * Assignment: Final Project Part II - TerminalHK
+ *
+ * Destroy the current session and return to the home page.
+ */
+
+declare(strict_types=1);
+
+require_once __DIR__ . '/includes/helpers.php';
+
+$_SESSION = [];
+
+if (ini_get('session.use_cookies')) {
+    $params = session_get_cookie_params();
+    setcookie(session_name(), '', time() - 42000, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+}
+
+session_destroy();
+
+redirect('index.php');
