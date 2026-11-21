@@ -1,3 +1,12 @@
+/**
+ * Group: 5
+ * Members: Jacky (23577648), James (25530933), Tsoi Kit (25525116)
+ * Date: 2026-11-22
+ * Assignment: Final Project Part II - TerminalHK
+ *
+ * Site-wide styles for layout, navigation, product cards, forms and responsive breakpoints.
+ */
+
 /* 預留空間，避免跳過去時元素緊貼螢幕頂部 */
 builder-section {
     scroll-margin-top: 20px; 

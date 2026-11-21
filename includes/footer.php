@@ -1,3 +1,13 @@
+<?php
+/**
+ * Group: 5
+ * Members: Jacky (23577648), James (25530933), Tsoi Kit (25525116)
+ * Date: 2026-11-22
+ * Assignment: Final Project Part II - TerminalHK
+ *
+ * Shared footer: service promises, contact links and closing page content.
+ */
+?>
     <!-- === 服務特色區塊 === -->
     <div class="bg-white border-top border-bottom py-4 mt-5">
         <div class="container">

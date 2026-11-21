@@ -1,4 +1,14 @@
 <?php
+/**
+ * Group: 5
+ * Members: Jacky (23577648), James (25530933), Tsoi Kit (25525116)
+ * Date: 2026-11-22
+ * Assignment: Final Project Part II - TerminalHK
+ *
+ * Application configuration: error reporting, timezone and base URL.
+ */
+
+
 // 開啟錯誤報告 (開發環境使用，生產環境應關閉)
 error_reporting(E_ALL);
 ini_set('display_errors', 1);

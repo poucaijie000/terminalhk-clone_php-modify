@@ -1,3 +1,13 @@
+<?php
+/**
+ * Group: 5
+ * Members: Jacky (23577648), James (25530933), Tsoi Kit (25525116)
+ * Date: 2026-11-22
+ * Assignment: Final Project Part II - TerminalHK
+ *
+ * Reusable product card for one catalogue item.
+ */
+?>
 <div class="card h-100 border-light shadow-sm text-decoration-none">
     <!-- 圖片容器 (固定高度並居中) -->
     <div class="d-flex align-items-center justify-content-center p-3" style="height: 180px;">

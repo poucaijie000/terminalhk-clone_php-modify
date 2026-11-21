@@ -1,3 +1,12 @@
+/**
+ * Group: 5
+ * Members: Jacky (23577648), James (25530933), Tsoi Kit (25525116)
+ * Date: 2026-11-22
+ * Assignment: Final Project Part II - TerminalHK
+ *
+ * Home-page carousel and shared client-side interactions.
+ */
+
 document.addEventListener("DOMContentLoaded", function() {
     const slides = document.querySelectorAll("#bannerSlides img");
     const dots = document.querySelectorAll("#sliderDots span");

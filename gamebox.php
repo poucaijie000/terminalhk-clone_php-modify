@@ -1,4 +1,14 @@
 <?php
+/**
+ * Group: 5
+ * Members: Jacky (23577648), James (25530933), Tsoi Kit (25525116)
+ * Date: 2026-11-22
+ * Assignment: Final Project Part II - TerminalHK
+ *
+ * GameBox3 and GameBox3+ landing page with specifications and service promises.
+ */
+
+
 // 引入頭部
 include 'includes/header.php';
 ?>

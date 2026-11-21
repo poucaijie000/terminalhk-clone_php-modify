@@ -1,4 +1,14 @@
 <?php
+/**
+ * Group: 5
+ * Members: Jacky (23577648), James (25530933), Tsoi Kit (25525116)
+ * Date: 2026-11-22
+ * Assignment: Final Project Part II - TerminalHK
+ *
+ * Mock product data for early product-card prototypes; the live catalogue is data/items.xml.
+ */
+
+
 // 這裡模擬從資料庫抓取資料。真實專案中，這裡會是呼叫 Model 類別的方法。
 return [
     'recommend_products' => [

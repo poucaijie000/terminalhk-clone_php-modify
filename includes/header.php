@@ -1,4 +1,13 @@
-<?php require_once __DIR__ . '/helpers.php'; ?><!DOCTYPE html>
+<?php
+/**
+ * Group: 5
+ * Members: Jacky (23577648), James (25530933), Tsoi Kit (25525116)
+ * Date: 2026-11-22
+ * Assignment: Final Project Part II - TerminalHK
+ *
+ * Shared document head, top bar, navigation and search/cart controls.
+ */
+require_once __DIR__ . '/helpers.php'; ?><!DOCTYPE html>
 <html lang="zh-HK">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +16,6 @@
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- 自訂 CSS -->
     <!-- 自訂 CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>

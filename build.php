@@ -1,4 +1,14 @@
 <?php
+/**
+ * Group: 5
+ * Members: Jacky (23577648), James (25530933), Tsoi Kit (25525116)
+ * Date: 2026-11-22
+ * Assignment: Final Project Part II - TerminalHK
+ *
+ * Custom PC builder page: parts search, recommended builds and price summary.
+ */
+
+
 // 引入頭部
 include 'includes/header.php';
 ?>

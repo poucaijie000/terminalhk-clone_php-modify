@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
 /**
- * Group: [Group Number]
- * Members: [Member Name] ([Student ID]), [Member Name] ([Student ID])
+ * Group: 5
+ * Members: Jacky (23577648), James (25530933), Tsoi Kit (25525116)
  * Date: 2026-11-22
  * Assignment: Final Project Part II - TerminalHK
  *
