@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php require_once __DIR__ . '/helpers.php'; ?><!DOCTYPE html>
 <html lang="zh-HK">
 <head>
     <meta charset="UTF-8">
@@ -36,40 +36,73 @@
                 <i></i> 聯絡
             </a>
             <a href="#">關於</a>
-            <!-- 登錄/註冊下拉選單 -->
-<div class="dropdown">
-    <!-- 觸發按鈕 -->
-    <a href="#" class="text-muted text-decoration-none dropdown-toggle" id="loginDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-        登錄 / 註冊
-    </a>
-    
-    <!-- 下拉選單內容 -->
-    <div class="dropdown-menu dropdown-menu-end login-dropdown shadow-sm" aria-labelledby="loginDropdown">
-        <form class="px-3 py-2">
-            <!-- 郵箱輸入 -->
-            <div class="mb-3">
-                <label for="loginEmail" class="form-label text-dark small mb-1">用戶郵箱</label>
-                <input type="email" class="form-control" id="loginEmail" placeholder="用戶郵箱">
-            </div>
-            
-            <!-- 密碼輸入 -->
-            <div class="mb-4">
-                <label for="loginPassword" class="form-label text-dark small mb-1">密碼</label>
-                <input type="password" class="form-control" id="loginPassword" placeholder="密碼">
-            </div>
-            
-            <!-- 按鈕區 -->
-            <div class="d-flex align-items-center gap-2">
-                <button type="submit" class="btn btn-login px-3">登錄</button>
-                <button type="button" class="btn btn-login px-3">註冊</button>
-                <div class="ms-auto d-flex gap-2">
-                    <a href="#" class="text-dark text-decoration-none small text-nowrap">更改密碼</a>
-                    <a href="#" class="text-dark text-decoration-none small text-nowrap">忘記密碼</a>
+
+            <!-- 登錄/註冊選單 -->
+            <?php if (current_user() !== null): ?>
+                <div class="dropdown">
+                    <a href="#" class="text-muted text-decoration-none dropdown-toggle" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <?php echo e(current_user()['name']); ?>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-sm" aria-labelledby="accountDropdown">
+                        <li>
+                            <span class="dropdown-item-text small text-muted">
+                                <?php echo e(current_user()['email']); ?>
+                            </span>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="logout.php">登出</a></li>
+                    </ul>
                 </div>
-            </div>
-        </form>
-    </div>
-</div>
+            <?php else: ?>
+                <div class="dropdown">
+                    <a href="#" class="text-muted text-decoration-none dropdown-toggle" id="loginDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        登錄 / 註冊
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-end login-dropdown shadow-sm" aria-labelledby="loginDropdown">
+                        <form class="px-3 py-2" action="login.php" method="post">
+                            <?php echo csrf_field(); ?>
+
+                            <div class="mb-3">
+                                <label for="loginEmail" class="form-label text-dark small mb-1">Gmail 地址</label>
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    id="loginEmail"
+                                    name="email"
+                                    placeholder="Gmail 地址"
+                                    autocomplete="email"
+                                    required
+                                >
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="loginPassword" class="form-label text-dark small mb-1">密碼</label>
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    id="loginPassword"
+                                    name="password"
+                                    placeholder="密碼"
+                                    autocomplete="current-password"
+                                    required
+                                >
+                            </div>
+
+                            <div class="d-flex align-items-center gap-2">
+                                <button type="submit" class="btn btn-login px-3">登錄</button>
+                                <a href="register.php" class="btn btn-login px-3">註冊</a>
+
+                                <div class="ms-auto d-flex gap-2">
+                                    <a href="forgot_password.php" class="text-dark text-decoration-none small text-nowrap">
+                                        忘記密碼
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 
