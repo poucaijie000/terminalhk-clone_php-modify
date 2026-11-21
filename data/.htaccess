@@ -1,0 +1,9 @@
+# Block direct HTTP access to XML data files and mail logs.
+# Apache 2.4 syntax used by XAMPP.
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>
