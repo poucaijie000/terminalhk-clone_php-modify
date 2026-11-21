@@ -454,3 +454,504 @@ body {
     padding-top: calc(0.375rem + 1px);
     padding-bottom: calc(0.375rem + 1px);
 }
+
+/* 左側選單 */
+.contact-menu li {
+    margin-bottom: 20px;
+}
+.contact-menu li a {
+    font-size: 18px;
+    color: #333;
+    display: inline-block;
+    padding-bottom: 5px;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s;
+}
+.contact-menu li a:hover,
+.contact-menu li a.active {
+    color: #4a90e2; 
+    border-bottom: 1px solid #e0e0e0;
+    width: 100%; 
+}
+
+/* FAQ 標題微調 */
+.faq-content h5 {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+/* ========================================= */
+/* --- GameBox 頁面專用樣式 --- */
+/* ========================================= */
+.gamebox-page {
+    background-color: #fff;
+}
+
+.gamebox-page .gamebox-container {
+    max-width: 1140px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+/* 頁內子導航 */
+.game-menu {
+    padding-bottom: 10px;
+    gap: 12px;
+}
+
+.game-menu-title {
+    font-size: 24px;
+    font-weight: 300;
+    color: #333;
+}
+
+.game-menu-links {
+    gap: 34px;
+}
+
+.game-menu-links a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.2s;
+}
+
+.game-menu-links a:hover,
+.game-menu-links a.active {
+    color: #4a90e2;
+}
+
+.game-buy-btn {
+    padding: 6px 30px;
+    margin-left: 10px;
+}
+
+/* 分隔線與區塊 */
+.gamebox-page hr.game-hr {
+    border: 0;
+    border-top: 1px solid #ddd;
+    opacity: 1;
+    margin: 0;
+}
+
+.gamebox-page .game-section {
+    padding: 30px 0;
+}
+
+.gamebox-page .first-section {
+    padding-top: 20px;
+}
+
+/* 標題 */
+.gamebox-page h1.game-h1 {
+    font-size: 52px;
+    font-weight: 300;
+    color: #333;
+}
+
+.gamebox-page h2.game-h2 {
+    font-size: 32px;
+    font-weight: 300;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.game-subtitle {
+    font-size: 20px;
+    font-weight: 300;
+    color: #6d6d6d;
+    margin-bottom: 24px;
+}
+
+.game-lead {
+    max-width: 860px;
+    margin: 0 auto 30px;
+    font-size: 15px;
+    line-height: 2;
+    color: #333;
+}
+
+/* 圖片 */
+.game-hero-img {
+    width: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.game-wide-img {
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* 特點圖文排版 */
+.feature-row {
+    padding: 10px 0;
+}
+
+.feature-text {
+    padding: 0 40px 20px;
+}
+
+.feature-text p {
+    font-size: 15px;
+    line-height: 2;
+    color: #333;
+}
+
+.feature-img {
+    max-width: 100%;
+    max-height: 280px;
+    object-fit: contain;
+}
+
+/* 硬碟速度比較 */
+.speed-compare {
+    max-width: 820px;
+    margin: 30px auto 0;
+}
+
+.speed-title {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 18px;
+}
+
+.speed-row {
+    margin-bottom: 12px;
+}
+
+.speed-label {
+    font-size: 15px;
+    color: #333;
+}
+
+.speed-compare .progress {
+    height: 24px;
+    border-radius: 0;
+    background-color: #eee;
+}
+
+.speed-compare .progress-bar {
+    font-size: 13px;
+    line-height: 24px;
+}
+
+.speed-compare .progress-bar-success {
+    background-color: #5cb85c;
+}
+
+.speed-compare .progress-bar-danger {
+    background-color: #d9534f;
+}
+
+/* 產品比較卡 */
+.compare-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 0;
+}
+
+.compare-img-wrap {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.compare-img-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.compare-name {
+    font-size: 24px;
+    font-weight: 300;
+    color: #333;
+}
+
+.compare-price {
+    font-size: 28px;
+    font-weight: 300;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.compare-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+    font-size: 14px;
+    line-height: 2;
+    color: #555;
+}
+
+/* 技術規格表 */
+.game-spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 760px;
+}
+
+.game-spec-table th,
+.game-spec-table td {
+    font-size: 14px;
+    font-weight: normal;
+    text-align: left;
+    vertical-align: top;
+    padding: 8px 20px 28px 10px;
+    border-top: 1px solid #dfdfdf;
+}
+
+.game-spec-table th {
+    width: 14%;
+    font-size: 18px;
+    color: #333;
+}
+
+.game-spec-table .spec-spacer {
+    width: 5%;
+    border-top: 0;
+    padding: 0;
+}
+
+.game-spec-table .spec-head td {
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.game-spec-table .spec-head td.spec-label,
+.game-spec-table .spec-head td.spec-spacer {
+    border-top: 0;
+    padding: 0;
+}
+
+.game-spec-table .spec-img-row td {
+    border-top: 0;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.game-spec-table .spec-img-row img {
+    height: 240px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.game-spec-table .spec-price {
+    font-size: 26px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.game-spec-table .spec-upgrade {
+    display: block;
+    color: #888;
+    margin-top: 18px;
+}
+
+/* GameBox 響應式 */
+@media (max-width: 991.98px) {
+    .gamebox-page h1.game-h1 {
+        font-size: 40px;
+    }
+
+    .gamebox-page h2.game-h2 {
+        font-size: 26px;
+    }
+
+    .feature-text {
+        padding: 0 15px 20px;
+    }
+
+    .compare-img-wrap {
+        height: 240px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .game-menu-title {
+        font-size: 20px;
+    }
+
+    .game-menu-links {
+        gap: 16px;
+        margin-top: 10px;
+    }
+
+    .game-menu-links a {
+        font-size: 14px;
+    }
+
+    .game-buy-btn {
+        padding: 4px 16px;
+        margin-left: 0;
+    }
+
+    .gamebox-page .game-section {
+        padding: 20px 0;
+    }
+
+    .gamebox-page h1.game-h1 {
+        font-size: 32px;
+    }
+
+    .gamebox-page h2.game-h2 {
+        font-size: 22px;
+    }
+
+    .game-subtitle {
+        font-size: 17px;
+    }
+
+    .game-lead {
+        font-size: 14px;
+    }
+
+    .compare-price {
+        font-size: 24px;
+    }
+
+    /* GameBox 子導航改為兩行，避免按鈕被擠出畫面 */
+    .gamebox-page .game-menu {
+        align-items: flex-start !important;
+    }
+
+    .gamebox-page .game-menu-links {
+        flex: 1 1 100%;
+        width: 100%;
+        gap: 12px 20px;
+    }
+
+    .gamebox-page .game-buy-btn {
+        padding: 4px 14px;
+        font-size: 13px;
+    }
+}
+
+/* ========================================= */
+/* --- 全站頁首手機適配 --- */
+/* ========================================= */
+@media (max-width: 767.98px) {
+    /* 頂部資訊欄：縮小並容許換行 */
+    .top-bar {
+        font-size: 12px;
+        padding: 6px 0;
+    }
+
+    .top-bar .container {
+        flex-wrap: wrap;
+        justify-content: center !important;
+        gap: 4px 14px !important;
+    }
+
+    .top-bar a img {
+        height: 12px !important;
+    }
+
+    .header-main {
+        padding-top: 10px;
+    }
+
+    /* Bootstrap 在 lg 以下未給 col-lg-* 固定寬度，這裡補回 100% 避免撐出畫面 */
+    .header-main .col-lg-2,
+    .header-main .col-lg-10 {
+        width: 100%;
+    }
+
+    .logo-wrapper {
+        border-left: 0;
+        padding: 0 0 10px;
+    }
+
+    .logo-wrapper img {
+        max-height: 56px;
+    }
+
+    .logo-text,
+    .logo-text .highlight {
+        font-size: 16px;
+        margin-top: 4px;
+    }
+
+    /* 主導航：可橫向滑動，不換行 */
+    .nav-container {
+        padding-left: 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .nav-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-menu {
+        flex-wrap: nowrap;
+    }
+
+    .nav-menu .nav-link {
+        padding: 8px 14px;
+        font-size: 15px;
+        white-space: nowrap;
+    }
+
+    /* 搜尋與購物車 */
+    .search-section {
+        padding: 12px 0 16px;
+        min-width: 0;
+    }
+
+    .search-section form {
+        min-width: 0;
+    }
+
+    .search-input {
+        min-width: 0;
+        height: 42px;
+        font-size: 14px;
+    }
+
+    .btn-search {
+        width: 48px;
+        height: 42px;
+        font-size: 16px;
+    }
+
+    .btn-cart {
+        height: 42px;
+        padding: 0 14px;
+        margin-left: 8px;
+        font-size: 14px;
+    }
+}
+/* 小屏手機（<=480px）再收緊一級 */
+@media (max-width: 479.98px) {
+    .nav-menu .nav-link {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .btn-cart {
+        padding: 0 10px;
+        font-size: 13px;
+    }
+
+    .gamebox-page .game-menu-links {
+        gap: 10px 14px;
+    }
+
+    .top-bar .container {
+        gap: 4px 10px !important;
+    }
+}
+
+/* 平板（768–991px）同樣需要補回欄寬 */
+@media (max-width: 991.98px) {
+    .header-main .col-lg-2,
+    .header-main .col-lg-10 {
+        width: 100%;
+    }
+}
