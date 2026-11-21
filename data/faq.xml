@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faqs>
+    <faq id="q1" order="1">
+        <question>你們是否有門市？</question>
+        <categories>
+            <category>購物流程</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-0">香港終端為網上購物平台，未設有門市。</p>]]></answer>
+    </faq>
+    <faq id="q2" order="2">
+        <question>產品壞了如何保養？</question>
+        <categories>
+            <category>售後支援</category>
+            <category>產品退換</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-0">產品出現問題，請不要擔心。我們會盡全力為閣下解決問題。香港終端為客戶提供上門收機服務，免費線上支援，自攜機檢查服務等。同樣，閣下可直接聯絡產品代理享受代理保養。了解更多信息，請查看這裡 [ 售後支援 ]</p>]]></answer>
+    </faq>
+    <faq id="q3" order="3">
+        <question>可以送到香港以外地區嗎？</question>
+        <categories>
+            <category>送貨服務</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-0">送貨服務暫時只覆蓋香港地區。其他地區客人可聯絡我們到倉庫自取商品</p>]]></answer>
+    </faq>
+    <faq id="q4" order="4">
+        <question>什麼是砌機服務？</question>
+        <categories>
+            <category>購物流程</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-0">$199享有砌機服務 包括組裝、首1個月硬件質量問題齊盒可安排換新、首2個月上門收機服務 (僅限硬件問題)及五年免費自攜檢查服務。</p>]]></answer>
+    </faq>
+    <faq id="q5" order="5">
+        <question>購買電腦組合是否包Windows？</question>
+        <categories>
+            <category>購物流程</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-2">全部電腦組合在未特殊說明情況下未包含Windows。因為很多客人自己有安裝光碟或USB手指，而Windows價錢較高，因為我們不會強迫捆綁銷售</p><p class="text-dark mb-0">香港終端遵守香港法律，受到代理規管，只可以使用由香港代理授權的正版軟件<br>為避免日後爭議，不在香港終端購買軟件將不能提供安裝服務</p>]]></answer>
+    </faq>
+    <faq id="q6" order="6">
+        <question>購買電腦組合是否包Cable？</question>
+        <categories>
+            <category>購物流程</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-2">購買含火牛的砌機組合時，會贈送火牛線。<br>購買顯示器時，不同型號，原廠將提供不同種類顯示器線 (VGA/DVI/HDMI/Display Port)，如不了解內含顯示器線是否適用於您的電腦，請聯絡我們客服人員。<br>購買Router時通常會贈送短Lan線</p>]]></answer>
+    </faq>
+    <faq id="q7" order="7">
+        <question>送貨時 是否會有產品包裝，配件，說明書，保養證明，光碟驅動？</question>
+        <categories>
+            <category>購物流程</category>
+            <category>產品退換</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-0">購買產品後，我們會將全部產品包裝，配件，說明書，保養證明，光碟驅動一起發送。</p>]]></answer>
+    </faq>
+    <faq id="q8" order="8">
+        <question>購買電腦組合是否有風扇？</question>
+        <categories>
+            <category>購物流程</category>
+            <category>產品退換</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-0">一般情況下購買電腦組合會贈送原廠風扇。無須另行購買。特殊型號產品可能未包含。(如高階CPU)</p>]]></answer>
+    </faq>
+    <faq id="q9" order="9">
+        <question>送貨時會幫你們駁線嗎？</question>
+        <categories>
+            <category>送貨服務</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-0">因並非全部送貨同事了解電腦，我們暫時不能保證一定會為閣下駁線。閣下可要求自己駁線試過後才簽收，送貨同事可等待閣下試機後才簽收</p>]]></answer>
+    </faq>
+    <faq id="q10" order="10">
+        <question>為何訂單一直顯示為處理中，是否正常？</question>
+        <categories>
+            <category>購物流程</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-0">訂單在創建後即會轉為處理中，直至已簽收。屬於正常現象</p>]]></answer>
+    </faq>
+    <faq id="q11" order="11">
+        <question>免費送貨有最低消費限制嗎？</question>
+        <categories>
+            <category>送貨服務</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-0">香港終端為全部商品提供免費送貨，並無最低消費限制</p>]]></answer>
+    </faq>
+    <faq id="q12" order="12">
+        <question>如果我現在下單，幾時可以收到產品？</question>
+        <categories>
+            <category>送貨服務</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-0">香港終端現有三種送貨方式，免費送貨時間下可能在1-5日內收到產品，$50保證3日內送達，$150保證即日或最遲第二日夜晚送達。若有缺貨(如缺貨)工作人員會在第一時間聯絡閣下以告知延遲。由於訂單較多，實際交通狀況複雜，突發情況很多，具體時間通常比較難保證</p>]]></answer>
+    </faq>
+    <faq id="q13" order="13">
+        <question>會有分期付款嗎？</question>
+        <categories>
+            <category>付款說明</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-0">暫時未有分期付款，相信會在不未來提供此服務</p>]]></answer>
+    </faq>
+    <faq id="q14" order="14">
+        <question>送貨時不在家怎麼辦？</question>
+        <categories>
+            <category>送貨服務</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-0">送貨同事會在送貨前提前通過電話方式聯絡，以確保有人收貨。若收件人未能收貨，可委託家人代收。若無法聯絡客人或無人收貨，公司會再安排下次盡快送貨。</p>]]></answer>
+    </faq>
+    <faq id="q15" order="15">
+        <question>可以由家人代收嗎？</question>
+        <categories>
+            <category>送貨服務</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-0">如若家人能夠幫忙核對貨品較佳。</p>]]></answer>
+    </faq>
+    <faq id="q16" order="16">
+        <question>我住的地方沒有電梯，是否都送到門口？</question>
+        <categories>
+            <category>送貨服務</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-0">香港終端送貨服務不包括行樓梯；若未有電梯，可安排在樓下交收(PayPal付款訂單無法於樓下交收)或與送貨同事商討有關個人服務及收費。</p>]]></answer>
+    </faq>
+    <faq id="q17" order="17">
+        <question>購物需要支付定金嗎？</question>
+        <categories>
+            <category>付款說明</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-0">購物無需訂金。</p>]]></answer>
+    </faq>
+    <faq id="q18" order="18">
+        <question>新買電腦，駁線後發現顯示器沒畫面 (no signal), 怎麼辦？</question>
+        <categories>
+            <category>售後支援</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-3">為避免用戶收貨後無法使用，及付出不必要時間/金錢，香港終端全部產品都會在測試通過後才發貨。沒有畫面多數由顯示器線駁錯位置造成。<br>當電腦擁有獨立顯示卡時，請將顯示器線連接獨立顯示卡。如下圖所示:</p><img src="assets/images/faq/no_signal.png" alt="顯示器接駁位置" class="img-fluid border rounded mb-3" style="max-height: 400px;"><p class="text-dark mb-2">因VGA(藍色頭)線規格較舊，很多顯示卡已不再支持，建議購買相應高清線使用。<br>若閣下顯示器沒有相應插口，可購買VGA-DVI轉換頭使用</p><p class="text-dark mb-0">若閣下不了解顯示器有沒有相應插口，歡迎提供圖片並與我們Facebook 或 WhatsApp客服中人員聯絡。</p>]]></answer>
+    </faq>
+    <faq id="q19" order="19">
+        <question>自己裝Windows，為何看不到另外一塊Hard Disk？</question>
+        <categories>
+            <category>售後支援</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-2">新Windows無法見到全部HDD通常由於新HDD未被分配磁碟所致。可通過以下步驟解決:</p><ol class="text-dark mb-0"><li>於工作列「開始」右鍵選擇磁碟管理</li><li>若彈出初始化磁碟畫面，請選擇GPT模式</li><li>找到磁碟，查看是否有未配置空間</li><li>滑鼠右鍵點擊未配置空間，跟隨提示完成分配HDD</li></ol>]]></answer>
+    </faq>
+    <faq id="q20" order="20">
+        <question>我有舊HDD/DVD，送貨時可以幫我安裝嗎？</question>
+        <categories>
+            <category>售後支援</category>
+            <category>除舊服務</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-0">我們暫時未有上門安裝服務，安裝HDD/DVD相當簡單，閣下可通過Facebook 或 WhatsApp方式聯絡客服人員，我們會遠程協助閣下安裝舊硬件。</p>]]></answer>
+    </faq>
+    <faq id="q21" order="21">
+        <question>訂單顯示裝箱時間很久了，正常嗎？</question>
+        <categories>
+            <category>售後支援</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-0">裝箱包含配貨/組裝/測試等眾多環節。通常時間較長，屬於正常現象。</p>]]></answer>
+    </faq>
+    <faq id="q22" order="22">
+        <question>為什麼安裝Windows後無法上網？</question>
+        <categories>
+            <category>售後支援</category>
+        </categories>
+        <answer><![CDATA[<p class="text-dark mb-0">新安裝Windows後需要安裝驅動程式才可正常使用硬件。<br>若在香港終端購買砌機組合，工作人員會將驅動程式碟放入底板盒中。<br>只需依次安裝底板驅動程式/顯示卡驅動程式，電腦便可正常使用</p>]]></answer>
+    </faq>
+</faqs>
