@@ -1,206 +1,233 @@
 <?php
-// 引入頭部
-include 'includes/header.php';
+declare(strict_types=1);
+/**
+ * Group: [Group Number]
+ * Members: [Member Name] ([Student ID]), [Member Name] ([Student ID])
+ * Date: 2026-11-22
+ * Assignment: Final Project Part II - TerminalHK
+ *
+ * Item list page. Products are read from data/items.xml through the shared XML
+ * layer. The page supports a keyword search and a category filter; every card
+ * links to product_detail.php?id=<item id>.
+ */
+
+require_once __DIR__ . '/includes/helpers.php';
+require_once __DIR__ . '/includes/xml.php';
+
+$current_page = 'products.php';
+$page_title = '產品目錄 | 香港終端 TerminalHK';
+
+$keyword = isset($_GET['q']) && is_string($_GET['q']) ? trim($_GET['q']) : '';
+$category = isset($_GET['category']) && is_string($_GET['category']) ? trim($_GET['category']) : '';
+
+$itemsXml = load_xml(ITEMS_XML);
+$items = $itemsXml instanceof SimpleXMLElement ? all_items($itemsXml) : [];
+
+$categories = [];
+foreach ($items as $item) {
+    $name = trim((string) $item->category);
+    if ($name !== '') {
+        $categories[$name] = true;
+    }
+}
+$categories = array_keys($categories);
+sort($categories, SORT_NATURAL | SORT_FLAG_CASE);
+
+$filtered = [];
+foreach ($items as $item) {
+    $name = (string) $item->name;
+    $summary = (string) $item->summary;
+    $itemCategory = (string) $item->category;
+
+    if ($keyword !== '') {
+        $haystack = $name . ' ' . $summary . ' ' . $itemCategory;
+        if (stripos($haystack, $keyword) === false) {
+            continue;
+        }
+    }
+
+    if ($category !== '' && $itemCategory !== $category) {
+        continue;
+    }
+
+    $filtered[] = $item;
+}
+
+require __DIR__ . '/includes/header.php';
 ?>
 
-<!-- 主體內容 -->
+<!-- Product catalogue: filters, category navigation and dynamic item cards -->
 <div class="container my-4">
-    
-    <!-- 麵包屑導航 -->
+
+    <!-- Breadcrumb -->
     <nav aria-label="breadcrumb" class="mb-4">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.php" class="text-decoration-none text-muted">首頁</a></li>
-            <li class="breadcrumb-item active text-dark" aria-current="page">電腦硬件</li>
+            <li class="breadcrumb-item">
+                <a href="index.php" class="text-decoration-none text-muted">首頁</a>
+            </li>
+            <li class="breadcrumb-item active text-dark" aria-current="page">產品目錄</li>
         </ol>
     </nav>
 
-    <!-- 產品分類大外框 -->
     <div class="row border rounded bg-white">
-        
-        <!-- 左側邊欄 (佔 2 欄) -->
-        <div class="col-lg-2 border-end py-3">
+
+        <!-- Category sidebar generated from items.xml -->
+        <aside class="col-lg-3 border-end py-3">
+            <h2 class="h6 text-uppercase text-muted px-3 mb-3">商品分類</h2>
             <ul class="list-unstyled category-menu mb-0">
-                <li><a href="#" class="text-dark text-decoration-none">優惠組合</a></li>
-                <li><a href="#" class="text-dark text-decoration-none">中央處理器</a></li>
-                <li><a href="#" class="text-dark text-decoration-none">主機板</a></li>
-                <li><a href="#" class="text-dark text-decoration-none">顯示卡</a></li>
-                <li><a href="#" class="text-dark text-decoration-none">內置硬碟機</a></li>
-                <li><a href="#" class="text-dark text-decoration-none">SSD固態硬碟</a></li>
-                <li><a href="#" class="text-dark text-decoration-none">外置儲存設備</a></li>
-                <li><a href="#" class="text-dark text-decoration-none">記憶體</a></li>
-                <li><a href="#" class="text-dark text-decoration-none">機箱</a></li>
-                <li><a href="#" class="text-dark text-decoration-none">火牛</a></li>
-                <li><a href="#" class="text-dark text-decoration-none">散熱配件</a></li>
-                <li><a href="#" class="text-dark text-decoration-none">外置設備</a></li>
-                <li><a href="#" class="text-dark text-decoration-none">其他設備</a></li>
-                <li><a href="#" class="text-dark text-decoration-none">軟件</a></li>
-                <li><a href="#" class="text-dark text-decoration-none">顯示屏</a></li>
-                <li><a href="#" class="text-dark text-decoration-none">網絡產品</a></li>
-                <li><a href="#" class="text-dark text-decoration-none fw-bold">NAS</a></li>
-                <li><a href="#" class="text-dark text-decoration-none">手提電腦</a></li>
-                <li><a href="#" class="text-dark text-decoration-none">打印機</a></li>
-                <li><a href="#" class="text-dark text-decoration-none fw-bold">Mini PC</a></li>
-                <li><a href="#" class="text-dark text-decoration-none">電腦椅</a></li>
-                <li><a href="#" class="text-dark text-decoration-none fw-bold">VR產品</a></li>
-                <li><a href="#" class="text-dark text-decoration-none">DJI產品</a></li>
-                <li><a href="#" class="text-dark text-decoration-none">遊戲主機及配件</a></li>
+                <li class="mb-2">
+                    <a
+                        href="products.php<?php echo $keyword !== '' ? '?q=' . urlencode($keyword) : ''; ?>"
+                        class="text-decoration-none <?php echo $category === '' ? 'fw-bold text-primary' : 'text-dark'; ?>"
+                    >
+                        全部商品
+                        <span class="text-muted small">(<?php echo count($items); ?>)</span>
+                    </a>
+                </li>
+
+                <?php foreach ($categories as $categoryName): ?>
+                    <?php
+                    $count = 0;
+                    foreach ($items as $item) {
+                        if ((string) $item->category === $categoryName) {
+                            $count++;
+                        }
+                    }
+
+                    $params = [];
+                    if ($keyword !== '') {
+                        $params['q'] = $keyword;
+                    }
+                    $params['category'] = $categoryName;
+                    $categoryUrl = 'products.php?' . http_build_query($params);
+                    $active = $category === $categoryName;
+                    ?>
+                    <li class="mb-2">
+                        <a
+                            href="<?php echo e($categoryUrl); ?>"
+                            class="text-decoration-none <?php echo $active ? 'fw-bold text-primary' : 'text-dark'; ?>"
+                        >
+                            <?php echo e($categoryName); ?>
+                            <span class="text-muted small">(<?php echo $count; ?>)</span>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
             </ul>
-        </div>
+        </aside>
 
-        <!-- 右側網格區 (佔 10 欄) -->
-        <div class="col-lg-10 p-4">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-0">
-                
-                <!-- 分類卡片 1 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/combo.jpg" class="img-fluid category-img mb-3" alt="優惠組合">
-                    <h6 class="text-dark mb-0">優惠組合</h6>
-                </div>
-                
-                <!-- 分類卡片 2 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/cpu.jpg" class="img-fluid category-img mb-3" alt="中央處理器">
-                    <h6 class="text-dark mb-0">中央處理器</h6>
-                </div>
-                
-                <!-- 分類卡片 3 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/mb.jpg" class="img-fluid category-img mb-3" alt="主機板">
-                    <h6 class="text-dark mb-0">主機板</h6>
-                </div>
-                
-                <!-- 分類卡片 4 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/gpu.jpg" class="img-fluid category-img mb-3" alt="顯示卡">
-                    <h6 class="text-dark mb-0">顯示卡</h6>
+        <!-- Search results and product grid -->
+        <section class="col-lg-9 p-4">
+            <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-3">
+                <div>
+                    <h1 class="h4 mb-1">產品目錄</h1>
+                    <p class="text-muted mb-0">共 <?php echo count($filtered); ?> 件商品</p>
                 </div>
 
-                <!-- 分類卡片 5 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/hdd.jpg" class="img-fluid category-img mb-3" alt="內置硬碟機">
-                    <h6 class="text-dark mb-0">內置硬碟機</h6>
-                </div>
-                
-                <!-- 分類卡片 6 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/ssd.jpg" class="img-fluid category-img mb-3" alt="SSD固態硬碟">
-                    <h6 class="text-dark mb-0">SSD固態硬碟</h6>
-                </div>
-                
-                <!-- 分類卡片 7 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/ext_storage.jpg" class="img-fluid category-img mb-3" alt="外置儲存設備">
-                    <h6 class="text-dark mb-0">外置儲存設備</h6>
-                </div>
-                
-                <!-- 分類卡片 8 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/ram.jpg" class="img-fluid category-img mb-3" alt="記憶體">
-                    <h6 class="text-dark mb-0">記憶體</h6>
-                </div>
-                
-                <!-- 分類卡片 9 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/case.jpg" class="img-fluid category-img mb-3" alt="機箱">
-                    <h6 class="text-dark mb-0">機箱</h6>
-                </div>
-                
-                <!-- 分類卡片 10 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/psu.jpg" class="img-fluid category-img mb-3" alt="火牛">
-                    <h6 class="text-dark mb-0">火牛</h6>
-                </div>
-                
-                <!-- 分類卡片 11 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/cooler.jpg" class="img-fluid category-img mb-3" alt="散熱配件">
-                    <h6 class="text-dark mb-0">散熱配件</h6>
-                </div>
-                
-                <!-- 分類卡片 12 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/peripheral.jpg" class="img-fluid category-img mb-3" alt="外置設備">
-                    <h6 class="text-dark mb-0">外置設備</h6>
-                </div>
-
-                <!-- 分類卡片 13 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/other.jpg" class="img-fluid category-img mb-3" alt="其他設備">
-                    <h6 class="text-dark mb-0">其他設備</h6>
-                </div>
-
-                <!-- 分類卡片 14 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/software.jpg" class="img-fluid category-img mb-3" alt="軟件">
-                    <h6 class="text-dark mb-0">軟件</h6>
-                </div>
-
-                <!-- 分類卡片 15 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/monitor.jpg" class="img-fluid category-img mb-3" alt="顯示屏">
-                    <h6 class="text-dark mb-0">顯示屏</h6>
-                </div>
-
-                <!-- 分類卡片 16 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/network.jpg" class="img-fluid category-img mb-3" alt="網絡產品">
-                    <h6 class="text-dark mb-0">網絡產品</h6>
-                </div>
-
-                <!-- 分類卡片 17 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/nas.jpg" class="img-fluid category-img mb-3" alt="NAS">
-                    <h6 class="text-dark mb-0">NAS</h6>
-                </div>
-
-                <!-- 分類卡片 18 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/laptop.jpg" class="img-fluid category-img mb-3" alt="手提電腦">
-                    <h6 class="text-dark mb-0">手提電腦</h6>
-                </div>
-
-                <!-- 分類卡片 19 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/printer.jpg" class="img-fluid category-img mb-3" alt="打印機">
-                    <h6 class="text-dark mb-0">打印機</h6>
-                </div>
-
-                <!-- 分類卡片 20 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/minipc.jpg" class="img-fluid category-img mb-3" alt="Mini PC">
-                    <h6 class="text-dark mb-0">Mini PC</h6>
-                </div>
-
-                <!-- 分類卡片 21 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/chair.jpg" class="img-fluid category-img mb-3" alt="電腦椅">
-                    <h6 class="text-dark mb-0">電腦椅</h6>
-                </div>
-
-                <!-- 分類卡片 22 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/vr.jpg" class="img-fluid category-img mb-3" alt="VR產品">
-                    <h6 class="text-dark mb-0">VR產品</h6>
-                </div>
-
-                <!-- 分類卡片 23 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/dji.jpg" class="img-fluid category-img mb-3" alt="DJI產品">
-                    <h6 class="text-dark mb-0">DJI產品</h6>
-                </div>
-
-                <!-- 分類卡片 24 -->
-                <div class="col p-3 text-center grid-item">
-                    <img src="assets/images/categories/console.jpg" class="img-fluid category-img mb-3" alt="遊戲主機及配件">
-                    <h6 class="text-dark mb-0">遊戲主機及配件</h6>
-                </div>
-
+                <?php if ($keyword !== '' || $category !== ''): ?>
+                    <div class="small text-muted">
+                        <?php if ($keyword !== ''): ?>
+                            關鍵字：<?php echo e($keyword); ?>
+                        <?php endif; ?>
+                        <?php if ($keyword !== '' && $category !== ''): ?>
+                            ／
+                        <?php endif; ?>
+                        <?php if ($category !== ''): ?>
+                            分類：<?php echo e($category); ?>
+                        <?php endif; ?>
+                        <a href="products.php" class="ms-2">清除篩選</a>
+                    </div>
+                <?php endif; ?>
             </div>
-        </div>
+
+            <!-- Keyword search form; the selected category is kept as a hidden field -->
+            <form class="row g-2 mb-4" action="products.php" method="get">
+                <div class="col-12 col-md-8">
+                    <label for="productKeyword" class="visually-hidden">搜尋商品</label>
+                    <input
+                        class="form-control"
+                        id="productKeyword"
+                        name="q"
+                        type="search"
+                        value="<?php echo e($keyword); ?>"
+                        placeholder="搜尋商品名稱、描述或分類..."
+                    >
+                </div>
+
+                <?php if ($category !== ''): ?>
+                    <input type="hidden" name="category" value="<?php echo e($category); ?>">
+                <?php endif; ?>
+
+                <div class="col-12 col-md-4 d-flex gap-2">
+                    <button class="btn btn-primary flex-grow-1" type="submit">搜尋</button>
+                    <a class="btn btn-outline-secondary" href="products.php">清除</a>
+                </div>
+            </form>
+
+            <?php if ($filtered === []): ?>
+                <!-- Empty state when no item matches the filters -->
+                <div class="alert alert-info mb-0" role="alert">
+                    沒有符合條件的商品，請嘗試其他關鍵字或分類。
+                </div>
+            <?php else: ?>
+                <!-- Dynamic product cards read from data/items.xml -->
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+                    <?php foreach ($filtered as $item): ?>
+                        <?php
+                        $itemId = (string) $item->id;
+                        $itemName = (string) $item->name;
+                        $itemCategory = (string) $item->category;
+                        $itemSummary = (string) $item->summary;
+                        $itemImage = (string) $item->image;
+                        $itemAlt = trim((string) $item->image_alt);
+                        if ($itemAlt === '') {
+                            $itemAlt = $itemName;
+                        }
+
+                        if (
+                            $itemImage === ''
+                            || strpos($itemImage, 'assets/images/') !== 0
+                            || !is_file(__DIR__ . '/' . $itemImage)
+                        ) {
+                            $itemImage = 'assets/images/logo/logo.png';
+                        }
+                        ?>
+                        <div class="col">
+                            <article class="card h-100 shadow-sm">
+                                <div class="ratio ratio-4x3 bg-light">
+                                    <img
+                                        src="<?php echo e($itemImage); ?>"
+                                        class="w-100 h-100 object-fit-contain p-3"
+                                        alt="<?php echo e($itemAlt); ?>"
+                                        loading="lazy"
+                                    >
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <span class="badge bg-secondary align-self-start mb-2">
+                                        <?php echo e($itemCategory); ?>
+                                    </span>
+                                    <h2 class="h6 card-title"><?php echo e($itemName); ?></h2>
+                                    <p class="card-text text-muted small flex-grow-1">
+                                        <?php echo e($itemSummary); ?>
+                                    </p>
+                                    <div class="d-flex align-items-center justify-content-between gap-2 mt-3">
+                                        <span class="fs-5 fw-bold text-primary">
+                                            <?php echo e(format_price($item->price)); ?>
+                                        </span>
+                                        <a
+                                            class="btn btn-primary btn-sm"
+                                            href="product_detail.php?id=<?php echo urlencode($itemId); ?>"
+                                        >
+                                            查看詳情
+                                        </a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+        </section>
     </div>
 </div>
 
-<?php
-// 引入底部
-include 'includes/footer.php';
-?>
+<?php require __DIR__ . '/includes/footer.php'; ?>
