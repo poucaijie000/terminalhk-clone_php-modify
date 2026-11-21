@@ -164,7 +164,7 @@ include 'includes/header.php';
                 <h5 class="mb-3 text-dark">以 WhatsApp 聯絡我們</h5>
                 <div class="d-flex align-items-center mb-3">
                     <!-- WhatsApp 綠色圖標 -->
-                    <i class="bi bi-whatsapp text-success" style="font-size: 2.5rem; margin-right: 10px;"></i>
+                    <span class="text-success d-inline-block" style="font-size: 2.5rem; margin-right: 10px; line-height: 1;"><?php echo icon_svg('whatsapp'); ?></span>
                     <span class="fs-3 text-dark fw-bold">64066698</span>
                     <span class="text-danger ms-2">(只限WhatsApp)</span>
                 </div>

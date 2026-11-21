@@ -39,7 +39,8 @@ include 'includes/header.php';
                 <div class="part-item border-bottom py-3">
                     <div class="text-dark mb-1"><?php echo $part; ?></div>
                     <div class="d-flex align-items-center text-muted search-part">
-                        <i class="bi bi-search me-2"></i>
+                        <?php echo icon_svg('search', 'me-2'); ?>
+
                         <input type="text" class="form-control border-0 shadow-none p-0 bg-transparent" placeholder="搜索/加入<?php echo $part; ?>">
                     </div>
                 </div>
@@ -90,7 +91,7 @@ include 'includes/header.php';
             <!-- 頂部搜尋欄 -->
             <div class="input-group mb-4">
                 <button class="btn btn-outline-secondary dropdown-toggle border-end-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #f8f9fa; color: #4a90e2;">
-                    <i class="bi bi-search me-1"></i> 推薦組合
+                    <?php echo icon_svg('search', 'me-1'); ?> 推薦組合
                 </button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">推薦組合</a></li>
@@ -124,13 +125,13 @@ include 'includes/header.php';
                 foreach ($recommends as $item): 
                 ?>
                 <div class="d-flex align-items-center border-bottom py-3 recommend-item">
-                    <a href="#" class="text-dark me-3"><i class="bi bi-arrow-left"></i></a>
+                    <a href="#" class="text-dark me-3"><?php echo icon_svg('arrow-left'); ?></a>
                     <div class="flex-grow-1">
                         <div class="text-dark"><?php echo $item; ?></div>
                         <div class="text-end text-muted small mt-1">2026-09-07</div>
                     </div>
-                    <a href="#" class="text-muted mx-3"><i class="bi bi-trash"></i></a>
-                    <a href="#" class="text-dark ms-1"><i class="bi bi-arrow-right"></i></a>
+                    <a href="#" class="text-muted mx-3"><?php echo icon_svg('trash'); ?></a>
+                    <a href="#" class="text-dark ms-1"><?php echo icon_svg('arrow-right'); ?></a>
                 </div>
                 <?php endforeach; ?>
             </div>

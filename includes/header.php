@@ -7,8 +7,7 @@
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- 自訂 CSS -->
     <!-- 自訂 CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -176,7 +175,7 @@ if ($current_page == '' || $current_page == 'terminalhk_project') {
                         <form class="d-flex flex-grow-1" role="search">
                             <input class="form-control search-input" type="search" placeholder="搜索..." aria-label="Search">
                             <button class="btn btn-search" type="submit">
-                                <i class="bi bi-search"></i>
+                                <?php echo icon_svg('search'); ?>
                             </button>
                         </form>
                         <a href="#" class="btn btn-cart d-flex align-items-center justify-content-center">
