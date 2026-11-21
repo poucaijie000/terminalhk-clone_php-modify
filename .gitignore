@@ -2,3 +2,14 @@
 # macOS
 .DS_Store
 **/.DS_Store
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Local secrets and logs
+includes/mail_config.local.php
+data/mail.log
+
+# Backups
+*.bak
