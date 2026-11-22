@@ -16,16 +16,16 @@ require_once __DIR__ . '/helpers.php'; ?><!DOCTYPE html>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- 自訂 CSS -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
 
-    <!-- 頂部資訊欄 -->
+    <!-- Top information bar -->
     <div class="top-bar">
         <div class="container d-flex justify-content-end align-items-center gap-4">
             <a href="contact.php#customer-service" class="d-flex align-items-center text-decoration-none text-muted">
-                <!-- 替換為你的 location.png 路徑 -->
+                <!-- Replace with the path to your location.png -->
                  <img src="assets/images/header_miniicon/location.png" alt="客服部地址" class="me-2" style="height: 16px; width: auto;">
                  客服部地址
             </a>
@@ -44,7 +44,7 @@ require_once __DIR__ . '/helpers.php'; ?><!DOCTYPE html>
             </a>
             <a href="#">關於</a>
 
-            <!-- 登錄/註冊選單 -->
+            <!-- Login / register menu -->
             <?php if (current_user() !== null): ?>
                 <div class="dropdown">
                     <a href="#" class="text-muted text-decoration-none dropdown-toggle" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -113,40 +113,40 @@ require_once __DIR__ . '/helpers.php'; ?><!DOCTYPE html>
         </div>
     </div>
 
-    <!-- 主頭部 -->
+    <!-- Main header -->
     <header class="header-main">
         <div class="container">
             <div class="row">
                 
-                <!-- 左側：Logo 區塊 (佔用 2 欄) -->
+                <!-- Left: logo block (2 columns) -->
                 <div class="col-lg-2 mb-3 mb-lg-0">
                     <div class="logo-wrapper">
                         <a href="index.php">
-                            <!-- 你的 T 圖標 -->
+                            <!-- Your T-shaped icon -->
                             <img src="assets/images/logo/logo.png" alt="Logo">
                         </a>
-                        <!-- 下方的文字。如果你的 logo.png 已經包含文字，請把這行 div 刪除 -->
+                        <!-- Text below. If logo.png already contains the text, delete this div. -->
                         <div class="logo-text">
                             <span class="text-gray">香港</span><span class="highlight">終端</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 右側：導航與搜尋 (佔用 10 欄) -->
+                <!-- Right: navigation and search (10 columns) -->
                 <div class="col-lg-10 d-flex flex-column justify-content-between">
                     
-                    <!-- 導航欄 -->
+                    <!-- Navigation bar -->
                     <?php 
-// 取得當前運行的檔案名稱 (例如 index.php, products.php)
+// Get the current file name (for example index.php, products.php)
 $current_page = basename($_SERVER['PHP_SELF']); 
-// 如果直接輸入 localhost:3000/terminalhk_project/ 沒寫 index.php，則手動設定為 index.php
+// If the URL ends at localhost:3000/terminalhk_project/ without index.php, default to index.php
 if ($current_page == '' || $current_page == 'terminalhk_project') {
     $current_page = 'index.php';
 }
 ?>
 <div class="nav-container">
     <ul class="nav nav-menu mb-0">
-        <!-- 首頁 -->
+        <!-- Home -->
         <li class="nav-item">
             <a class="nav-link <?php echo ($current_page == 'index.php') ? 'active' : ''; ?>" href="index.php">首頁</a>
         </li>
@@ -156,29 +156,29 @@ if ($current_page == '' || $current_page == 'terminalhk_project') {
             <a class="nav-link <?php echo ($current_page == 'gamebox.php') ? 'active' : ''; ?>" href="gamebox.php">GameBox</a>
         </li>
         
-        <!-- 產品目錄 -->
+        <!-- Product catalogue -->
         <li class="nav-item">
             <a class="nav-link <?php echo ($current_page == 'products.php') ? 'active' : ''; ?>" href="products.php">產品目錄</a>
         </li>
         
-        <!-- 砌機組合 (假設檔案為 build.php) -->
+        <!-- Custom build (assumes build.php) -->
          <li class="nav-item">
             <a class="nav-link <?php echo ($current_page == 'build.php') ? 'active' : ''; ?>" href="build.php#builder-section">砌機組合</a>
         </li>
         
-        <!-- 常見問題 (假設檔案為 faq.php) -->
+        <!-- FAQ (assumes faq.php) -->
         <li class="nav-item">
             <a class="nav-link <?php echo ($current_page == 'faq.php') ? 'active' : ''; ?>" href="faq.php">常見問題</a>
         </li>
         
-        <!-- 聯絡我們 (假設檔案為 contact.php) -->
+        <!-- Contact us (assumes contact.php) -->
         <li class="nav-item">
             <a class="nav-link <?php echo ($current_page == 'contact.php') ? 'active' : ''; ?>" href="contact.php">聯絡我們</a>
         </li>
     </ul>
 </div>
 
-                    <!-- 搜尋框與購物車 -->
+                    <!-- Search box and cart -->
                     <div class="search-section d-flex align-items-center">
                         <form class="d-flex flex-grow-1" role="search">
                             <input class="form-control search-input" type="search" placeholder="搜索..." aria-label="Search">

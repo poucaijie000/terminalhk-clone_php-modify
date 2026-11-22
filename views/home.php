@@ -108,13 +108,13 @@ foreach ($items as $item) {
 }
 $hotItems = array_slice($hotItems, 0, 5);
 ?>
-    <!-- === 主體內容：輪播圖與側邊欄 === -->
+    <!-- === Main content: carousel and sidebar === -->
     <main class="container my-4">
         <div class="row">
-            <!-- 左側輪播圖 (Bootstrap Carousel，佔 9 欄) -->
+            <!-- Left carousel (Bootstrap Carousel, 9 columns) -->
             <div class="col-lg-9 mb-4">
                 <div id="heroCarousel" class="carousel slide banner-area" data-bs-ride="carousel">
-                    <!-- 指示點 -->
+                    <!-- Indicators -->
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
                         <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
@@ -123,7 +123,7 @@ $hotItems = array_slice($hotItems, 0, 5);
                         <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4"></button>
                     </div>
                     
-                    <!-- 圖片內容 -->
+                    <!-- Slide content -->
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="assets/images/slide/slide01.png" class="d-block w-100" alt="Slide 1">
@@ -142,7 +142,7 @@ $hotItems = array_slice($hotItems, 0, 5);
                         </div>
                     </div>
                     
-                    <!-- 左右切換按鈕 -->
+                    <!-- Previous / next controls -->
                     <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     </button>
@@ -152,7 +152,7 @@ $hotItems = array_slice($hotItems, 0, 5);
                 </div>
             </div>
 
-            <!-- 右側邊欄 (佔 3 欄) -->
+            <!-- Right sidebar (3 columns) -->
             <div class="col-lg-3">
                 <div class="d-flex flex-column gap-3">
                     <a href="products.php" class="text-decoration-none">
@@ -177,7 +177,7 @@ $hotItems = array_slice($hotItems, 0, 5);
         </div>
     </main>
 
-    <!-- === 推薦產品區塊：featured items from data/items.xml === -->
+    <!-- === Featured products: featured items from data/items.xml === -->
     <section class="container my-5">
         <h2 class="section-title mb-3">推薦產品</h2>
 
@@ -226,7 +226,7 @@ $hotItems = array_slice($hotItems, 0, 5);
         <?php endif; ?>
     </section>
 
-    <!-- === 新品上架區塊：newest created_at from data/items.xml === -->
+    <!-- === New arrivals: newest created_at from data/items.xml === -->
     <section class="container my-5">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h2 class="section-title m-0">新品上架</h2>
@@ -267,7 +267,7 @@ $hotItems = array_slice($hotItems, 0, 5);
         <?php endif; ?>
     </section>
 
-    <!-- === 熱賣產品區塊：hot="1" items from data/items.xml === -->
+    <!-- === Hot sale: hot="1" items from data/items.xml === -->
     <section class="container my-5 pb-5">
         <h2 class="section-title mb-3">熱賣產品</h2>
 

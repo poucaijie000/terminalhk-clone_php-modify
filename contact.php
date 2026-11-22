@@ -117,10 +117,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 include 'includes/header.php';
 ?>
 
-<!-- 主體內容 -->
+<!-- Main content -->
 <div class="container my-4">
     
-    <!-- 麵包屑導航 -->
+    <!-- Breadcrumb navigation -->
     <nav aria-label="breadcrumb" class="mb-4">
         <ol class="breadcrumb" id="breadcrumb">
             <li class="breadcrumb-item"><a href="index.php" class="text-decoration-none text-muted">首頁</a></li>
@@ -128,10 +128,10 @@ include 'includes/header.php';
         </ol>
     </nav>
 
-    <!-- 聯絡我們主外框 -->
+    <!-- Contact page wrapper -->
     <div class="row border rounded bg-white">
         
-        <!-- === 左側選單 (佔 3 欄) === -->
+        <!-- === Left menu (3 columns) === -->
         <div class="col-lg-3 border-end py-4">
             <ul class="list-unstyled contact-menu mb-0" id="contactMenu">
                 <li><a href="#customer-service" class="active text-decoration-none" data-category="客戶服務">客戶服務</a></li>
@@ -140,10 +140,10 @@ include 'includes/header.php';
             </ul>
         </div>
 
-        <!-- === 右側內容區 (佔 9 欄) === -->
+        <!-- === Right content area (9 columns) === -->
         <div class="col-lg-9 p-4 p-md-5">
             
-            <!-- 區塊 1：客戶服務 -->
+            <!-- Section 1: customer service -->
             <div class="mb-5">
                 <h4 class="mb-4 text-dark">客戶服務</h4>
                 <p class="text-dark mb-2">如果你有任何問題，歡迎隨時聯絡我們，我們會盡力以最短時間回覆。</p>
@@ -159,11 +159,11 @@ include 'includes/header.php';
 
             <hr class="my-5">
 
-            <!-- 區塊 2：WhatsApp 聯絡 -->
+            <!-- Section 2: WhatsApp contact -->
             <div class="mb-5">
                 <h5 class="mb-3 text-dark">以 WhatsApp 聯絡我們</h5>
                 <div class="d-flex align-items-center mb-3">
-                    <!-- WhatsApp 綠色圖標 -->
+                    <!-- Green WhatsApp icon -->
                     <span class="text-success d-inline-block" style="font-size: 2.5rem; margin-right: 10px; line-height: 1;"><?php echo icon_svg('whatsapp'); ?></span>
                     <span class="fs-3 text-dark fw-bold">64066698</span>
                     <span class="text-danger ms-2">(只限WhatsApp)</span>
@@ -173,13 +173,13 @@ include 'includes/header.php';
 
             <hr class="my-5">
 
-            <!-- 區塊 3：公司地址 -->
+            <!-- Section 3: company address -->
             <div class="mb-5">
                 <h4 class="mb-4 text-dark">公司地址</h4>
-                <!-- Google Maps 佔位圖 (請替換為你自己的地圖截圖) -->
+                <!-- Google Maps placeholder (replace with your own map screenshot) -->
                 <div class="mb-4 text-center">
                     <img src="assets/images/contact/map.png" alt="Google Maps" class="img-fluid border rounded" style="width: 100%; max-height: 400px; object-fit: cover;">
-                    <!-- 如果你想用真實的 Google 地圖，可以把上面換成下面的 iframe：
+                    <!-- To use a real Google Map, replace the block above with this iframe:
                     <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     -->
                 </div>
@@ -202,7 +202,7 @@ include 'includes/header.php';
 
             <hr class="my-5">
 
-            <!-- 區塊 4：郵件客服 -->
+            <!-- Section 4: email support -->
             <div class="mb-5">
                 <h4 class="mb-4 text-dark">郵件客服</h4>
                 <p class="text-dark mb-3">郵件客服可在第一時間通過郵件解答閣下問題。</p>
@@ -211,11 +211,11 @@ include 'includes/header.php';
 
             <hr class="my-5">
 
-            <!-- 區塊 5：在線客服 (Facebook) -->
+            <!-- Section 5: online chat (Facebook) -->
             <div class="mb-5">
                 <h4 class="mb-4 text-dark">在線客服</h4>
                 <p class="text-dark mb-4">我們在社交網絡設有在線客服，可為閣下以最直接方式解答問題。請訪問我們的社交網站發送信息</p>
-                <!-- Facebook 按鈕 (請替換為你的圖片) -->
+                <!-- Facebook button (replace with your own image) -->
                 <a href="https://www.facebook.com/" target="_blank">
                     <img src="assets/images/contact/find_us_facebook.png" alt="Find us on Facebook" style="height: 60px; object-fit: contain;">
                 </a>
@@ -223,7 +223,7 @@ include 'includes/header.php';
 
             <hr class="my-5">
 
-            <!-- 區塊 6：線上提問表單 -->
+            <!-- Section 6: online enquiry form -->
             <div class="mb-4" id="online-form">
                 <h4 class="mb-4 text-dark">線上提問</h4>
                 <p class="text-dark mb-4">您可通過下面表格直接提交問題。(請在提交問題前確認所輸入郵箱地址正確，以免造成不必要延誤)</p>
@@ -355,32 +355,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuItems = document.querySelectorAll('#contactMenu a');
     const breadcrumb = document.getElementById('breadcrumb');
 
-    // 處理左側選單點擊事件
+    // Handle clicks on the left menu
     menuItems.forEach(item => {
         item.addEventListener('click', function(e) {
-            e.preventDefault(); // 阻止網頁跳轉
+            e.preventDefault(); // Prevent the default page navigation
 
-            // 1. 移除所有選單的 active class
+            // 1. Remove the active class from every menu item
             menuItems.forEach(el => el.classList.remove('active'));
-            // 2. 幫當前點擊的選單加上 active class (字體變藍色)
+            // 2. Add the active class to the clicked item (turns the label blue)
             this.classList.add('active');
 
-            // 3. 獲取點擊的分類名稱
+            // 3. Read the selected category name
             const category = this.getAttribute('data-category');
 
-            // 4. 動態更新麵包屑
+            // 4. Update the breadcrumb dynamically
             breadcrumb.innerHTML = `
                 <li class="breadcrumb-item"><a href="index.php" class="text-decoration-none text-muted">首頁</a></li>
                 <li class="breadcrumb-item text-muted">聯絡我們</li>
                 <li class="breadcrumb-item active text-dark" aria-current="page">${category}</li>
             `;
             
-            // 5. (可選) 改變網址上的 Hash，讓用戶重新整理也不會丟失狀態
+            // 5. (Optional) Update the URL hash so a refresh keeps the selected category
             window.history.pushState(null, null, '#' + this.getAttribute('href').split('#')[1]);
         });
     });
 
-    // 處理「重新整理頁面」時，保持原本點選的分類
+    // Keep the selected category when the page is refreshed
     if (window.location.hash) {
         const hash = window.location.hash;
         const targetItem = document.querySelector(`#contactMenu a[href="${hash}"]`);
@@ -392,6 +392,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <?php
-// 引入底部
+// Include footer
 include 'includes/footer.php';
 ?>

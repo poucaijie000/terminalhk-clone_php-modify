@@ -9,14 +9,14 @@
  */
 
 
-// 引入頭部
+// Include header
 include 'includes/header.php';
 ?>
 
-<!-- 主體內容 -->
+<!-- Main content -->
 <div class="container my-4">
     
-    <!-- 麵包屑導航 -->
+    <!-- Breadcrumb navigation -->
     <nav aria-label="breadcrumb" class="mb-4">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.php" class="text-decoration-none text-muted">首頁</a></li>
@@ -24,12 +24,12 @@ include 'includes/header.php';
         </ol>
     </nav>
 
-    <!-- 砌機主外框 -->
+    <!-- Custom build wrapper -->
     <div class="row border rounded bg-white" id="builder-section">
         
-        <!-- === 左側：組合詳情 (佔 6 欄) === -->
+        <!-- === Left: build details (6 columns) === -->
         <div class="col-lg-6 border-end p-4">
-            <!-- 標題列 -->
+            <!-- Title row -->
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h5 class="mb-0 text-dark fw-normal">組合詳情 <a href="#faq-section" class="text-muted text-decoration-none fs-6 ms-2">常見問題</a></h5>
                 <div class="form-check">
@@ -40,7 +40,7 @@ include 'includes/header.php';
                 </div>
             </div>
 
-            <!-- 零件列表 (正常模式，預設顯示) -->
+            <!-- Parts list (normal mode, shown by default) -->
              <div class="parts-list" id="detailed-parts">
                 <?php 
                 $parts = ['Windows', 'CPU', '主機板', '顯示卡', 'RAM', '火牛', 'HDD', 'SSD', '機箱', '光碟機', '散熱', '無線上網卡', '顯示器', '鍵盤/滑鼠/遊戲手制', '軟件'];
@@ -57,14 +57,14 @@ include 'includes/header.php';
                 <?php endforeach; ?>
             </div>
 
-            <!-- 簡易模式提示文字 (預設隱藏，加上 d-none) -->
+            <!-- Simple-mode hint (hidden by default with d-none) -->
             <div id="simple-mode-content" class="d-none py-5 border-bottom">
                 <div class="text-center text-muted py-4">
                     請加入電腦組合或硬件
                 </div>
             </div>
 
-            <!-- 左側底部結算區 -->
+            <!-- Left-side summary -->
             <div class="mt-4">
                 <div class="d-flex justify-content-end align-items-center mb-2">
                     <span class="text-muted me-2">服務:</span>
@@ -78,7 +78,7 @@ include 'includes/header.php';
                 <div class="text-end mb-3 text-muted">
                     砌機: <span class="text-dark">$199</span> 
                     <div class="form-check d-inline-block ms-2">
-                        <!-- 確保這個 input 有 id="checkService" -->
+                        <!-- Make sure this input has id="checkService" -->
                         <input class="form-check-input" type="checkbox" id="checkService" checked>
                         <label class="form-check-label text-dark" for="checkService">
                             [5年免費自攜機檢查服務]
@@ -86,7 +86,7 @@ include 'includes/header.php';
                     </div>
                 </div>
                 
-                <!-- 修改這裡：給 $199 加上 id="total-price" -->
+                <!-- Add id="total-price" to the $199 total here -->
                 <div class="text-end mb-3">
                     <span class="text-muted">總額:</span> <span class="fs-5 text-dark fw-bold" id="total-price">$199</span>
                 </div>
@@ -96,9 +96,9 @@ include 'includes/header.php';
             </div>
         </div>
 
-        <!-- === 右側：推薦組合 (佔 6 欄) === -->
+        <!-- === Right: recommended builds (6 columns) === -->
         <div class="col-lg-6 p-4">
-            <!-- 頂部搜尋欄 -->
+            <!-- Search bar at the top -->
             <div class="input-group mb-4">
                 <button class="btn btn-outline-secondary dropdown-toggle border-end-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #f8f9fa; color: #4a90e2;">
                     <?php echo icon_svg('search', 'me-1'); ?> 推薦組合
@@ -109,7 +109,7 @@ include 'includes/header.php';
                 <input type="text" class="form-control border-start-0 ps-0" placeholder="搜索產品...">
             </div>
 
-            <!-- 推薦列表 (循環生成) -->
+            <!-- Recommended list (generated in a loop) -->
             <div class="recommend-list">
                 <?php 
                 $recommends = [
@@ -148,7 +148,7 @@ include 'includes/header.php';
         </div>
     </div>
 
-    <!-- === 底部：常見問題 (FAQ) === -->
+    <!-- === Bottom: FAQ === -->
     <div id="faq-section" class="mt-5 pt-5 pb-5">
         <h3 class="text-center mb-5 text-dark fw-normal">常見問題</h3>
         <div class="faq-content text-muted" style="font-size: 15px; line-height: 2;">
@@ -194,12 +194,12 @@ include 'includes/header.php';
     </div>
 </div>
 
-<!-- 簡易模式切換邏輯 -->
+<!-- Simple-mode toggle logic -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     
     // ==========================================
-    // 1. 簡易模式切換邏輯
+    // 1. Simple-mode toggle
     // ==========================================
     const simpleModeCheckbox = document.getElementById('simpleMode');
     const detailedParts = document.getElementById('detailed-parts');
@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ==========================================
-    // 2. 砌機服務打勾金額計算邏輯
+    // 2. Build-service checkbox total calculation
     // ==========================================
     const checkService = document.getElementById('checkService');
     const totalPrice = document.getElementById('total-price');
@@ -226,10 +226,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (checkService && totalPrice) {
         checkService.addEventListener('change', function() {
             if (this.checked) {
-                // 如果打勾，總額為 $199
+                // When checked, the total is $199
                 totalPrice.textContent = '$199';
             } else {
-                // 如果取消打勾，總額為 $0
+                // When unchecked, the total is $0
                 totalPrice.textContent = '$0';
             }
         });
@@ -246,81 +246,81 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!targetElement) return;
 
     // ==========================================
-    // 1. 處理「從其他頁面跳轉過來」的平滑滾動
+    // 1. Smooth scroll when arriving from another page
     // ==========================================
     if (window.location.hash === '#' + targetId) {
-        // 先移除網址列的 #，防止瀏覽器之後又瞬間跳轉
+        // Remove the # from the URL first so the browser does not jump again
         history.replaceState(null, null, window.location.pathname);
         
-        // 強制先回到頂部 (避免看到瞬間跳下去的閃爍)
+        // Force the page to the top first to avoid a visible jump
         window.scrollTo(0, 0);
 
-        // 稍微延遲一下，確保頁面渲染完成，然後執行平滑滾動
+        // Wait briefly for rendering, then start the smooth scroll
         setTimeout(() => {
             smoothScrollTo(targetElement);
         }, 1000); 
     }
 
     // ==========================================
-    // 2. 處理「已經在 build.php，點擊導航欄」的平滑滾動
+    // 2. Smooth scroll when a navigation link is clicked while already on build.php
     // ==========================================
     const navLinks = document.querySelectorAll('a');
     navLinks.forEach(link => {
-        // 尋找包含 build.php#builder-section 或 #builder-section 的連結
+        // Find links containing build.php#builder-section or #builder-section
         if (link.getAttribute('href') && link.getAttribute('href').includes('#' + targetId)) {
             link.addEventListener('click', function(e) {
-                e.preventDefault(); // 阻止瞬間跳轉
+                e.preventDefault(); // Prevent the instant jump
                 smoothScrollTo(targetElement);
             });
         }
     });
 
     // ==========================================
-    // 核心平滑滾動動畫函數
+    // Core smooth-scroll animation
     // ==========================================
         // ==========================================
-    // 核心平滑滾動動畫函數 (優化結尾滑順度)
+    // Core smooth-scroll animation (smoother ending)
     // ==========================================
         // ==========================================
-    // 核心平滑滾動動畫函數 (移除強制跳轉)
+    // Core smooth-scroll animation (no forced jump)
     // ==========================================
     function smoothScrollTo(element) {
-        // 取得元素距離頂部的位置，減去 20px 留一點上邊距
+        // Get the element position and subtract 20px for top spacing
         const targetPosition = element.getBoundingClientRect().top + window.scrollY - 20;
         const startPosition = window.scrollY;
         const distance = targetPosition - startPosition;
         
-        // 如果距離太近，直接跳過動畫（比如已經在目標位置了）
+        // Skip the animation when the distance is too small (already at the target)
         if (Math.abs(distance) < 5) return;
 
-        const duration = 4000; // 1 秒
+        const duration = 4000; // 4 seconds (4000 ms)
         let start = null;
 
         window.requestAnimationFrame(function step(timestamp) {
             if (!start) start = timestamp;
             const progress = timestamp - start;
             
-            // 確保進度不會超過 1
+            // Keep progress within 1
             let t = Math.min(progress / duration, 1);
             
-            // easeOutCubic 緩動函數
+            // easeOutCubic easing function
             const easeOut = 1 - Math.pow(1 - t, 3);
             
-            // 計算當前位置，並四捨五入
+            // Calculate and round the current position
             const currentPosition = startPosition + (distance * easeOut);
             window.scrollTo(0, Math.round(currentPosition));
             
-            // 如果還沒到達時間，且距離目標大於 1 像素，繼續下一幀
+            // Continue to the next frame until the duration ends and the target is within 1px
             if (progress < duration && Math.abs(targetPosition - window.scrollY) > 1) {
                 window.requestAnimationFrame(step);
             }
-            // 移除了 else 裡面的強制 window.scrollTo
+            // Removed the forced window.scrollTo from the else branch
         });
     }
 });
 </script>
 
 <?php
-// 引入底部
+// Include footer
 include 'includes/footer.php';
 ?>
