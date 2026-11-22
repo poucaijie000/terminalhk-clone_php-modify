@@ -5,7 +5,7 @@
         <name>GameBox3</name>
         <category>Gaming PC</category>
         <price>3799</price>
-        <image>assets/images/gamebox/C450M.jpg</image>
+        <image>img/gamebox/C450M.jpg</image>
         <image_alt>GameBox3 簡約版機箱</image_alt>
         <summary>Intel Core i3 四核心處理器、GTX 1650 獨立顯示卡，適合入門遊戲與日常使用。</summary>
         <description>GameBox3 以簡約黑色機箱配合全鋼化玻璃側板，內建 Intel Core i3 四核心處理器與 NVIDIA GeForce GTX 1650 2GB 獨立顯示卡。1TB 硬碟與 8GB DDR4 2666MHz 記憶體可滿足遊戲、串流與文書需求，日後亦可升級處理器、顯示卡與儲存裝置。</description>
@@ -26,7 +26,7 @@
         <category>Gaming PC</category>
         <price>6699</price>
         <old_price>6999</old_price>
-        <image>assets/images/gamebox/SF30.jpg</image>
+        <image>img/gamebox/SF30.jpg</image>
         <image_alt>GameBox3+ RGB 四風扇版機箱</image_alt>
         <summary>Intel Core i5 六核心處理器、RTX 2060 6GB 獨立顯示卡，RGB 四風扇版本。</summary>
         <description>GameBox3+ 採用 RGB 四風扇機箱與全鋼化玻璃側板，配備 Intel Core i5 六核心處理器及 NVIDIA GeForce RTX 2060 6GB 獨立顯示卡。1TB HDD 加 240GB SSD 兼顧容量與速度，16GB DDR4 記憶體適合高負載遊戲與多工作業。</description>
@@ -48,7 +48,7 @@
         <category>記憶體</category>
         <price>399</price>
         <old_price>499</old_price>
-        <image>assets/images/categories/ram.jpg</image>
+        <image>img/categories/ram.jpg</image>
         <image_alt>G.SKILL Ripjaws V DDR4 記憶體</image_alt>
         <summary>16GB 雙通道 DDR4 3200MHz 記憶體套裝，適合遊戲與多工作業。</summary>
         <description>G.SKILL Ripjaws V 系列 DDR4 記憶體，2 x 8GB 雙通道套裝，出廠 XMP 設定為 3200MHz。低矮散熱片設計可配合大部分塔式風冷，適合入門至中階遊戲電腦升級。</description>
@@ -67,7 +67,7 @@
         <category>SSD固態硬碟</category>
         <price>699</price>
         <old_price>799</old_price>
-        <image>assets/images/categories/ssd.jpg</image>
+        <image>img/categories/ssd.jpg</image>
         <image_alt>Samsung 970 EVO Plus NVMe SSD</image_alt>
         <summary>1TB NVMe M.2 固態硬碟，讀取速度最高 3,500MB/s。</summary>
         <description>Samsung 970 EVO Plus 採用 NVMe M.2 介面與 V-NAND 技術，1TB 容量提供快速開機、遊戲載入與大型檔案傳輸。適合需要高速儲存的遊戲及創作電腦。</description>
@@ -87,7 +87,7 @@
         <category>顯示卡</category>
         <price>2599</price>
         <old_price>2899</old_price>
-        <image>assets/images/categories/gpu.jpg</image>
+        <image>img/categories/gpu.jpg</image>
         <image_alt>ASUS Dual GeForce RTX 3060 顯示卡</image_alt>
         <summary>12GB GDDR6 顯示卡，支援光線追蹤與 DLSS，適合 1080p 遊戲。</summary>
         <description>ASUS Dual GeForce RTX 3060 配備 12GB GDDR6 記憶體與雙風扇散熱器，支援 NVIDIA 光線追蹤及 DLSS。適合 1080p 高畫質遊戲、直播與入門創作工作。</description>
@@ -107,7 +107,7 @@
         <category>機箱</category>
         <price>499</price>
         <old_price>599</old_price>
-        <image>assets/images/categories/case.jpg</image>
+        <image>img/categories/case.jpg</image>
         <image_alt>Cooler Master TD500 Mesh 機箱</image_alt>
         <summary>中塔 ATX 機箱，網孔前面板與三把 ARGB 風扇。</summary>
         <description>Cooler Master MasterBox TD500 Mesh 採用網孔前面板與幾何切割鋼化玻璃側板，預裝三把 ARGB 風扇。支援 ATX 主機板、長顯示卡與多個儲存裝置。</description>
@@ -126,7 +126,7 @@
         <category>顯示屏</category>
         <price>1599</price>
         <old_price>1799</old_price>
-        <image>assets/images/categories/monitor.jpg</image>
+        <image>img/categories/monitor.jpg</image>
         <image_alt>Dell S2721H 27 吋顯示屏</image_alt>
         <summary>27 吋 Full HD IPS 顯示屏，支援 AMD FreeSync。</summary>
         <description>Dell S2721H 採用 27 吋 IPS 面板、1920 x 1080 解析度與 75Hz 更新率，支援 AMD FreeSync。內建雙喇叭及可調節底座，適合辦公、影音與輕度遊戲。</description>
@@ -146,7 +146,7 @@
         <category>網絡產品</category>
         <price>699</price>
         <old_price>799</old_price>
-        <image>assets/images/categories/network.jpg</image>
+        <image>img/categories/network.jpg</image>
         <image_alt>TP-Link Archer AX55 路由器</image_alt>
         <summary>Wi-Fi 6 雙頻路由器，支援 128 部裝置及 EasyMesh。</summary>
         <description>TP-Link Archer AX55 支援 Wi-Fi 6 (802.11ax)、雙頻無線速度最高 AX3000，配備 Gigabit LAN/WAN 埠與 EasyMesh。適合家庭寬頻、遊戲及多裝置串流。</description>

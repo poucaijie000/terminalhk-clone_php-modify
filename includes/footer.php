@@ -14,31 +14,31 @@
             <div class="row text-center">
                 <!-- Item 1: free delivery -->
                 <div class="col d-flex flex-column align-items-center">
-                    <img src="assets/images/footer/help_delivery.png" alt="免費送貨" style="height: 40px; object-fit: contain;" class="mb-2">
+                    <img src="img/footer/help_delivery.png" alt="免費送貨" style="height: 40px; object-fit: contain;" class="mb-2">
                     <span class="text-dark fw-bold">免費送貨</span>
                 </div>
                 
                 <!-- Item 2: five-year online support -->
                 <div class="col d-flex flex-column align-items-center">
-                    <img src="assets/images/footer/help_process.png" alt="5年線上支援" style="height: 40px; object-fit: contain;" class="mb-2">
+                    <img src="img/footer/help_process.png" alt="5年線上支援" style="height: 40px; object-fit: contain;" class="mb-2">
                     <span class="text-dark fw-bold">5年線上支援</span>
                 </div>
 
                 <!-- Item 3: seven-day no-reason return -->
                 <div class="col d-flex flex-column align-items-center">
-                    <img src="assets/images/footer/help_payment.png" alt="7日無理由退貨" style="height: 40px; object-fit: contain;" class="mb-2">
+                    <img src="img/footer/help_payment.png" alt="7日無理由退貨" style="height: 40px; object-fit: contain;" class="mb-2">
                     <span class="text-dark fw-bold">7日無理由退貨</span>
                 </div>
 
                 <!-- Item 4: 14-day free exchange -->
                 <div class="col d-flex flex-column align-items-center">
-                    <img src="assets/images/footer/package.png" alt="14日免費換貨" style="height: 40px; object-fit: contain;" class="mb-2">
+                    <img src="img/footer/package.png" alt="14日免費換貨" style="height: 40px; object-fit: contain;" class="mb-2">
                     <span class="text-dark fw-bold">14日免費換貨</span>
                 </div>
 
                 <!-- Item 5: 100% genuine stock -->
                 <div class="col d-flex flex-column align-items-center">
-                    <img src="assets/images/footer/search.png" alt="100%正品行貨" style="height: 40px; object-fit: contain;" class="mb-2">
+                    <img src="img/footer/search.png" alt="100%正品行貨" style="height: 40px; object-fit: contain;" class="mb-2">
                     <span class="text-dark fw-bold">100%正品行貨</span>
                 </div>
             </div>
@@ -136,7 +136,7 @@
                         </a>
                     <!-- GoDaddy security badge -->
                     <a href="https://www.google.com/" target="_blank" class="ms-2" title="GoDaddy 安全認證">
-                        <img src="assets/images/footer/siteseal_gd_3_h_l_m.gif" alt="GoDaddy Secure Seal" style="height: 38px; width: auto;">
+                        <img src="img/footer/siteseal_gd_3_h_l_m.gif" alt="GoDaddy Secure Seal" style="height: 38px; width: auto;">
                     </a>
                 </div>
             </div>
@@ -145,7 +145,7 @@
 
     <!-- === Floating customer-service button (bottom right) === -->
     <a href="#" class="floating-chat">
-        <img src="assets/images/logo/facebook-messenger-icon.png" alt="Messenger" class="chat-icon">
+        <img src="img/logo/facebook-messenger-icon.png" alt="Messenger" class="chat-icon">
         <span class="chat-text">線上客服</span>
     </a>
 

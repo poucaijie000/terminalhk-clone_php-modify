@@ -7,7 +7,7 @@
  *
  * Item detail page. The product id comes from ?id= and is matched against
  * data/items.xml. All output is escaped, and the image path must stay inside
- * the local assets/images/ directory.
+ * the local img/ directory.
  */
 
 declare(strict_types=1);
@@ -70,9 +70,9 @@ require __DIR__ . '/includes/header.php';
             $image = (string) $item->image;
             $imageAlt = (string) $item->image_alt;
             $imagePath = __DIR__ . '/' . ltrim($image, '/');
-            $imageUrl = (str_starts_with($image, 'assets/images/') && is_file($imagePath))
+            $imageUrl = (str_starts_with($image, 'img/') && is_file($imagePath))
                 ? $image
-                : 'assets/images/logo/logo.png';
+                : 'img/logo/logo.png';
             ?>
 
             <!-- Breadcrumb navigation -->

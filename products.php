@@ -185,10 +185,10 @@ require __DIR__ . '/includes/header.php';
 
                         if (
                             $itemImage === ''
-                            || strpos($itemImage, 'assets/images/') !== 0
+                            || strpos($itemImage, 'img/') !== 0
                             || !is_file(__DIR__ . '/' . $itemImage)
                         ) {
-                            $itemImage = 'assets/images/logo/logo.png';
+                            $itemImage = 'img/logo/logo.png';
                         }
                         ?>
                         <div class="col">

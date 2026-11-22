@@ -127,7 +127,7 @@
         <categories>
             <category>售後支援</category>
         </categories>
-        <answer><![CDATA[<p class="text-dark mb-3">為避免用戶收貨後無法使用，及付出不必要時間/金錢，香港終端全部產品都會在測試通過後才發貨。沒有畫面多數由顯示器線駁錯位置造成。<br>當電腦擁有獨立顯示卡時，請將顯示器線連接獨立顯示卡。如下圖所示:</p><img src="assets/images/faq/no_signal.png" alt="顯示器接駁位置" class="img-fluid border rounded mb-3" style="max-height: 400px;"><p class="text-dark mb-2">因VGA(藍色頭)線規格較舊，很多顯示卡已不再支持，建議購買相應高清線使用。<br>若閣下顯示器沒有相應插口，可購買VGA-DVI轉換頭使用</p><p class="text-dark mb-0">若閣下不了解顯示器有沒有相應插口，歡迎提供圖片並與我們Facebook 或 WhatsApp客服中人員聯絡。</p>]]></answer>
+        <answer><![CDATA[<p class="text-dark mb-3">為避免用戶收貨後無法使用，及付出不必要時間/金錢，香港終端全部產品都會在測試通過後才發貨。沒有畫面多數由顯示器線駁錯位置造成。<br>當電腦擁有獨立顯示卡時，請將顯示器線連接獨立顯示卡。如下圖所示:</p><img src="img/faq/no_signal.png" alt="顯示器接駁位置" class="img-fluid border rounded mb-3" style="max-height: 400px;"><p class="text-dark mb-2">因VGA(藍色頭)線規格較舊，很多顯示卡已不再支持，建議購買相應高清線使用。<br>若閣下顯示器沒有相應插口，可購買VGA-DVI轉換頭使用</p><p class="text-dark mb-0">若閣下不了解顯示器有沒有相應插口，歡迎提供圖片並與我們Facebook 或 WhatsApp客服中人員聯絡。</p>]]></answer>
     </faq>
     <faq id="q19" order="19">
         <question>自己裝Windows，為何看不到另外一塊Hard Disk？</question>

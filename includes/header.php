@@ -17,7 +17,7 @@ require_once __DIR__ . '/helpers.php'; ?><!DOCTYPE html>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -26,15 +26,15 @@ require_once __DIR__ . '/helpers.php'; ?><!DOCTYPE html>
         <div class="container d-flex justify-content-end align-items-center gap-4">
             <a href="contact.php#customer-service" class="d-flex align-items-center text-decoration-none text-muted">
                 <!-- Replace with the path to your location.png -->
-                 <img src="assets/images/header_miniicon/location.png" alt="客服部地址" class="me-2" style="height: 16px; width: auto;">
+                 <img src="img/header_miniicon/location.png" alt="客服部地址" class="me-2" style="height: 16px; width: auto;">
                  客服部地址
             </a>
             <a href="contact.php#customer-service" class="d-flex align-items-center text-decoration-none text-muted">
-                <img src="assets/images/header_miniicon/telphone.png" alt="37047358" class="me-2" style="height: 16px; width: auto;">
+                <img src="img/header_miniicon/telphone.png" alt="37047358" class="me-2" style="height: 16px; width: auto;">
                 37047358
             </a>
             <a href="contact.php#customer-service" class="d-flex align-items-center text-decoration-none text-muted">
-                <img src="assets/images/header_miniicon/wts.png" alt="64066698" class="me-2" style="height: 16px; width: auto;">
+                <img src="img/header_miniicon/wts.png" alt="64066698" class="me-2" style="height: 16px; width: auto;">
                 64066698
             </a>
             <a href="#">訂單</a>
@@ -123,7 +123,7 @@ require_once __DIR__ . '/helpers.php'; ?><!DOCTYPE html>
                     <div class="logo-wrapper">
                         <a href="index.php">
                             <!-- Your T-shaped icon -->
-                            <img src="assets/images/logo/logo.png" alt="Logo">
+                            <img src="img/logo/logo.png" alt="Logo">
                         </a>
                         <!-- Text below. If logo.png already contains the text, delete this div. -->
                         <div class="logo-text">

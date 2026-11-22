@@ -178,7 +178,7 @@ include 'includes/header.php';
                 <h4 class="mb-4 text-dark">公司地址</h4>
                 <!-- Google Maps placeholder (replace with your own map screenshot) -->
                 <div class="mb-4 text-center">
-                    <img src="assets/images/contact/map.png" alt="Google Maps" class="img-fluid border rounded" style="width: 100%; max-height: 400px; object-fit: cover;">
+                    <img src="img/contact/map.png" alt="Google Maps" class="img-fluid border rounded" style="width: 100%; max-height: 400px; object-fit: cover;">
                     <!-- To use a real Google Map, replace the block above with this iframe:
                     <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     -->
@@ -217,7 +217,7 @@ include 'includes/header.php';
                 <p class="text-dark mb-4">我們在社交網絡設有在線客服，可為閣下以最直接方式解答問題。請訪問我們的社交網站發送信息</p>
                 <!-- Facebook button (replace with your own image) -->
                 <a href="https://www.facebook.com/" target="_blank">
-                    <img src="assets/images/contact/find_us_facebook.png" alt="Find us on Facebook" style="height: 60px; object-fit: contain;">
+                    <img src="img/contact/find_us_facebook.png" alt="Find us on Facebook" style="height: 60px; object-fit: contain;">
                 </a>
             </div>
 

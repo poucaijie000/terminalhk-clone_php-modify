@@ -194,6 +194,6 @@ require __DIR__ . '/includes/header.php';
 </section>
 
 <!-- Shared client-side validation for account forms -->
-<script src="assets/js/account.js"></script>
+<script src="js/account.js"></script>
 
 <?php require __DIR__ . '/includes/footer.php'; ?>

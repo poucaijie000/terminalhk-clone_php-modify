@@ -18,12 +18,12 @@ $itemsXml = load_xml(ITEMS_XML);
 $items = $itemsXml instanceof SimpleXMLElement ? all_items($itemsXml) : [];
 
 /**
- * Resolve a product image and reject paths outside assets/images.
+ * Resolve a product image and reject paths outside img/.
  */
 $itemImage = static function (SimpleXMLElement $item): string {
     $image = (string) $item->image;
-    if ($image === '' || strpos($image, 'assets/images/') !== 0 || !is_file(dirname(__DIR__) . '/' . $image)) {
-        return 'assets/images/logo/logo.png';
+    if ($image === '' || strpos($image, 'img/') !== 0 || !is_file(dirname(__DIR__) . '/' . $image)) {
+        return 'img/logo/logo.png';
     }
 
     return $image;
@@ -126,19 +126,19 @@ $hotItems = array_slice($hotItems, 0, 5);
                     <!-- Slide content -->
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="assets/images/slide/slide01.png" class="d-block w-100" alt="Slide 1">
+                            <img src="img/slide/slide01.png" class="d-block w-100" alt="Slide 1">
                         </div>
                         <div class="carousel-item">
-                            <img src="assets/images/slide/slide02.png" class="d-block w-100" alt="Slide 2">
+                            <img src="img/slide/slide02.png" class="d-block w-100" alt="Slide 2">
                         </div>
                         <div class="carousel-item">
-                            <img src="assets/images/slide/slide03.png" class="d-block w-100" alt="Slide 3">
+                            <img src="img/slide/slide03.png" class="d-block w-100" alt="Slide 3">
                         </div>
                         <div class="carousel-item">
-                            <img src="assets/images/slide/slide04.png" class="d-block w-100" alt="Slide 4">
+                            <img src="img/slide/slide04.png" class="d-block w-100" alt="Slide 4">
                         </div>
                         <div class="carousel-item">
-                            <img src="assets/images/slide/slide05.png" class="d-block w-100" alt="Slide 5">
+                            <img src="img/slide/slide05.png" class="d-block w-100" alt="Slide 5">
                         </div>
                     </div>
                     
@@ -157,7 +157,7 @@ $hotItems = array_slice($hotItems, 0, 5);
                 <div class="d-flex flex-column gap-3">
                     <a href="products.php" class="text-decoration-none">
                         <div class="card side-card text-center py-4">
-                            <img src="assets/images/sideimg/rightside01.png" class="card-img-top mx-auto" alt="電腦硬件">
+                            <img src="img/sideimg/rightside01.png" class="card-img-top mx-auto" alt="電腦硬件">
                             <div class="card-body p-0 mt-3">
                                 <h5 class="card-title text-dark m-0 fw-normal">電腦硬件</h5>
                             </div>
@@ -166,7 +166,7 @@ $hotItems = array_slice($hotItems, 0, 5);
                     
                     <a href="build.php#builder-section" class="text-decoration-none">
                         <div class="card side-card text-center py-4">
-                            <img src="assets/images/sideimg/rightside02.png" class="card-img-top mx-auto" alt="自選砌機">
+                            <img src="img/sideimg/rightside02.png" class="card-img-top mx-auto" alt="自選砌機">
                             <div class="card-body p-0 mt-3">
                                 <h5 class="card-title text-dark m-0 fw-normal">自選砌機</h5>
                             </div>

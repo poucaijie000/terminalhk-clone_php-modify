@@ -35,7 +35,7 @@ include 'includes/header.php';
         <section id="design" class="game-section first-section text-center">
             <h1 class="game-h1">GameBox3</h1>
             <p class="game-subtitle">只為最佳遊戲體驗</p>
-            <img src="assets/images/gamebox/top.jpg" class="img-fluid game-hero-img" alt="GameBox3 遊戲電腦主視覺">
+            <img src="img/gamebox/top.jpg" class="img-fluid game-hero-img" alt="GameBox3 遊戲電腦主視覺">
         </section>
 
         <hr class="game-hr">
@@ -49,7 +49,7 @@ include 'includes/header.php';
                 採用最新版處理器及大容量記憶體以提升多任務能力及系統整體性能使遊戲運行穩定流暢，同時高速硬碟可大幅減少遊戲啟動讀取時間，
                 讓你不再因電腦延遲而分心，在超高品質流暢畫面下，享受完美遊戲體驗！
             </p>
-            <img src="assets/images/gamebox/mh.jpg" class="img-fluid game-wide-img" alt="遊戲畫面示範">
+            <img src="img/gamebox/mh.jpg" class="img-fluid game-wide-img" alt="遊戲畫面示範">
         </section>
 
         <hr class="game-hr">
@@ -68,7 +68,7 @@ include 'includes/header.php';
                     </p>
                 </div>
                 <div class="col-lg-6 text-center">
-                    <img src="assets/images/gamebox/intel.png" class="img-fluid feature-img" alt="Intel 第9代 Core 處理器">
+                    <img src="img/gamebox/intel.png" class="img-fluid feature-img" alt="Intel 第9代 Core 處理器">
                 </div>
             </div>
 
@@ -77,7 +77,7 @@ include 'includes/header.php';
             <!-- 顯示卡 -->
             <div class="row align-items-center g-4 feature-row">
                 <div class="col-lg-6 order-2 order-lg-1 text-center">
-                    <img src="assets/images/gamebox/nvidia.jpg" class="img-fluid feature-img" alt="NVIDIA 遊戲顯示卡">
+                    <img src="img/gamebox/nvidia.jpg" class="img-fluid feature-img" alt="NVIDIA 遊戲顯示卡">
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 feature-text">
                     <h2 class="game-h2 text-center">最新頂級遊戲顯示卡</h2>
@@ -104,7 +104,7 @@ include 'includes/header.php';
                     </p>
                 </div>
                 <div class="col-lg-6 text-center">
-                    <img src="assets/images/gamebox/sshd.jpg" class="img-fluid feature-img" alt="SSD 與 HDD 硬碟">
+                    <img src="img/gamebox/sshd.jpg" class="img-fluid feature-img" alt="SSD 與 HDD 硬碟">
                 </div>
             </div>
 
@@ -142,7 +142,7 @@ include 'includes/header.php';
             <!-- 記憶體 -->
             <div class="row align-items-center g-4 feature-row">
                 <div class="col-lg-6 order-2 order-lg-1 text-center">
-                    <img src="assets/images/gamebox/ram.png" class="img-fluid feature-img" alt="DDR4 記憶體">
+                    <img src="img/gamebox/ram.png" class="img-fluid feature-img" alt="DDR4 記憶體">
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 feature-text">
                     <h2 class="game-h2 text-center">高速DDR4記憶體</h2>
@@ -186,8 +186,8 @@ include 'includes/header.php';
                     <tr class="spec-img-row">
                         <td></td>
                         <td></td>
-                        <td><img src="assets/images/gamebox/C450M.jpg" alt="GameBox3"></td>
-                        <td><img src="assets/images/gamebox/SF30.jpg" alt="GameBox3+"></td>
+                        <td><img src="img/gamebox/C450M.jpg" alt="GameBox3"></td>
+                        <td><img src="img/gamebox/SF30.jpg" alt="GameBox3+"></td>
                     </tr>
 
                     <tr>
