@@ -9,15 +9,15 @@
  */
 
 
-// 如果有資料庫連線或設定，通常會在這裡 require config.php
+// Database connections or configuration are usually required here via config.php
 // require_once 'config.php';
 
-// 引入頭部
+// Include header
 include 'includes/header.php';
 
-// 引入首頁內容
+// Include home content
 include 'views/home.php';
 
-// 引入底部
+// Include footer
 include 'includes/footer.php';
 ?>

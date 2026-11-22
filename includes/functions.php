@@ -10,7 +10,7 @@
 
 
 /**
- * 格式化價格輸出
+ * Format a price for display.
  */
 function formatPrice($price) {
     return '$' . number_format($price, 0);

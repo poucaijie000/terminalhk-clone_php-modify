@@ -13,30 +13,30 @@ document.addEventListener("DOMContentLoaded", function() {
     let currentSlide = 0;
     const totalSlides = slides.length;
 
-    // 切換到指定圖片的函數
+    // Switch to a specific image
     function goToSlide(index) {
-        // 移除所有 active class
+        // Remove the active class from all items
         slides.forEach(slide => slide.classList.remove("active"));
         dots.forEach(dot => dot.classList.remove("active"));
 
-        // 加上 active class 到當前圖片和圓點
+        // Add the active class to the current image and dot
         slides[index].classList.add("active");
         dots[index].classList.add("active");
         currentSlide = index;
     }
 
-    // 自動輪播 (每 4 秒切換一次)
+    // Auto-advance every 4 seconds
     let slideInterval = setInterval(() => {
         let nextSlide = (currentSlide + 1) % totalSlides;
         goToSlide(nextSlide);
     }, 4000);
 
-    // 點擊圓點切換
+    // Switch images when a dot is clicked
     dots.forEach((dot, index) => {
         dot.addEventListener("click", () => {
-            clearInterval(slideInterval); // 點擊時重置計時器
+            clearInterval(slideInterval); // Reset the timer after a manual click
             goToSlide(index);
-            // 重新開始自動輪播
+            // Restart the auto-advance timer
             slideInterval = setInterval(() => {
                 let nextSlide = (currentSlide + 1) % totalSlides;
                 goToSlide(nextSlide);

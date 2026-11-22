@@ -112,10 +112,10 @@ foreach ($faqNodes as $faq) {
 include 'includes/header.php';
 ?>
 
-<!-- 主體內容 -->
+<!-- Main content -->
 <div class="container my-4">
     
-    <!-- 麵包屑導航 -->
+    <!-- Breadcrumb navigation -->
     <nav aria-label="breadcrumb" class="mb-4">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.php" class="text-decoration-none text-muted">首頁</a></li>
@@ -123,10 +123,10 @@ include 'includes/header.php';
         </ol>
     </nav>
 
-    <!-- 常見問題主外框 -->
+    <!-- FAQ main wrapper -->
     <div class="row border rounded bg-white">
         
-        <!-- === 左側選單 (佔 3 欄) === -->
+        <!-- === Left-hand menu (3 columns) === -->
         <div class="col-lg-3 border-end py-4">
             <ul class="list-unstyled contact-menu mb-0">
                 <?php foreach ($categoryOptions as $category): ?>
@@ -148,14 +148,14 @@ include 'includes/header.php';
             </ul>
         </div>
 
-        <!-- === 右側內容區 (佔 9 欄) === -->
+        <!-- === Right-hand content area (9 columns) === -->
         <div class="col-lg-9 p-4 p-md-5">
             
-            <!-- 區塊標題 -->
+            <!-- Section heading -->
             <h4 class="mb-2 text-dark"><?php echo e($selectedCategory); ?></h4>
             <p class="text-muted small mb-4">共 <?php echo count($visibleFaqs); ?> 條問題</p>
 
-            <!-- 關鍵字搜尋 -->
+            <!-- Keyword search -->
             <form method="get" action="faq.php" class="mb-4">
                 <div class="input-group">
                     <?php if ($selectedCategory !== '常見問題'): ?>
@@ -181,7 +181,7 @@ include 'includes/header.php';
             <?php if ($visibleFaqs === []): ?>
                 <div class="alert alert-info mb-0">沒有符合條件的問題，請嘗試其他關鍵字或分類。</div>
             <?php else: ?>
-                <!-- 快速跳轉目錄 -->
+                <!-- Quick-jump index -->
                 <ul class="text-dark mb-5" style="line-height: 2;">
                     <?php foreach ($visibleFaqs as $faq): ?>
                         <li>
@@ -194,7 +194,7 @@ include 'includes/header.php';
 
                 <hr class="my-4">
 
-                <!-- 問答列表 -->
+                <!-- Question and answer list -->
                 <div class="faq-content">
                     <?php foreach ($visibleFaqs as $faq): ?>
                         <div id="<?php echo e((string) $faq['id']); ?>" class="mb-4 pb-3 border-bottom">
@@ -213,6 +213,6 @@ include 'includes/header.php';
 </div>
 
 <?php
-// 引入底部
+// Include footer
 include 'includes/footer.php';
 ?>

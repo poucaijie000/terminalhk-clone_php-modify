@@ -9,7 +9,7 @@
  */
 
 
-// 預期傳入變數 $products 陣列
+// Expects a $products array to be passed in
 if (empty($products)) return;
 ?>
 <div class="product-grid">

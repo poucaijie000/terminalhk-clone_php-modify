@@ -9,14 +9,14 @@
  */
 
 
-// 引入頭部
+// Include header
 include 'includes/header.php';
 ?>
 
 <div class="gamebox-page">
     <div class="container gamebox-container">
 
-        <!-- === 頁內子導航 === -->
+        <!-- === In-page sub-navigation === -->
         <div class="game-menu d-flex flex-wrap align-items-end justify-content-between">
             <h3 class="game-menu-title mb-0">GameBox3</h3>
             <div class="game-menu-links d-flex flex-wrap align-items-center">
@@ -31,7 +31,7 @@ include 'includes/header.php';
         </div>
         <hr class="game-hr">
 
-        <!-- === 設計理念 === -->
+        <!-- === Design philosophy === -->
         <section id="design" class="game-section first-section text-center">
             <h1 class="game-h1">GameBox3</h1>
             <p class="game-subtitle">只為最佳遊戲體驗</p>
@@ -40,7 +40,7 @@ include 'includes/header.php';
 
         <hr class="game-hr">
 
-        <!-- === GAME 介紹 === -->
+        <!-- === GAME introduction === -->
         <section class="game-section text-center">
             <h2 class="game-h2">GAME</h2>
             <p class="game-subtitle">真正為遊戲度身設計</p>
@@ -54,10 +54,10 @@ include 'includes/header.php';
 
         <hr class="game-hr">
 
-        <!-- === 電腦特點 === -->
+        <!-- === PC features === -->
         <section id="feature" class="game-section">
 
-            <!-- 處理器 -->
+            <!-- Processor -->
             <div class="row align-items-center g-4 feature-row">
                 <div class="col-lg-6 feature-text">
                     <h2 class="game-h2 text-center">第9代Intel處理器</h2>
@@ -74,7 +74,7 @@ include 'includes/header.php';
 
             <hr class="game-hr my-4">
 
-            <!-- 顯示卡 -->
+            <!-- Graphics card -->
             <div class="row align-items-center g-4 feature-row">
                 <div class="col-lg-6 order-2 order-lg-1 text-center">
                     <img src="img/gamebox/nvidia.jpg" class="img-fluid feature-img" alt="NVIDIA 遊戲顯示卡">
@@ -92,7 +92,7 @@ include 'includes/header.php';
 
             <hr class="game-hr my-4">
 
-            <!-- 儲存器 -->
+            <!-- Storage -->
             <div class="row align-items-center g-4 feature-row">
                 <div class="col-lg-6 feature-text">
                     <h2 class="game-h2 text-center">極速大容量儲存器</h2>
@@ -108,7 +108,7 @@ include 'includes/header.php';
                 </div>
             </div>
 
-            <!-- 速度比較 -->
+            <!-- Speed comparison -->
             <div class="speed-compare">
                 <p class="speed-title text-center">最高順序讀寫速度比較</p>
 
@@ -139,7 +139,7 @@ include 'includes/header.php';
 
             <hr class="game-hr my-4">
 
-            <!-- 記憶體 -->
+            <!-- Memory -->
             <div class="row align-items-center g-4 feature-row">
                 <div class="col-lg-6 order-2 order-lg-1 text-center">
                     <img src="img/gamebox/ram.png" class="img-fluid feature-img" alt="DDR4 記憶體">
@@ -158,12 +158,12 @@ include 'includes/header.php';
 
         <hr class="game-hr">
 
-        <!-- === 產品比較 === -->
+        <!-- === Product comparison === -->
         <div id="compare" aria-hidden="true"></div>
 
 <hr class="game-hr">
 
-        <!-- === 技術規格 === -->
+        <!-- === Technical specifications === -->
         <section id="spec" class="game-section">
             <h2 class="game-h2 text-center">技術規格</h2>
 
@@ -311,7 +311,7 @@ include 'includes/header.php';
     </div>
 </div>
 
-<!-- === 缺貨提示 Modal === -->
+<!-- === Out-of-stock modal === -->
 <div class="modal fade" id="stockModal" tabindex="-1" aria-labelledby="stockModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-0">
@@ -332,7 +332,7 @@ include 'includes/header.php';
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    // 頁內導航平滑滾動
+    // Smooth scrolling for the in-page navigation
     const anchors = document.querySelectorAll('.gamebox-page .game-anchor');
     anchors.forEach(function (link) {
         link.addEventListener('click', function (e) {
@@ -344,7 +344,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 捲動時高亮目前區塊對應的導航
+    // Highlight the navigation item for the section currently in view
     const sections = Array.prototype.slice.call(document.querySelectorAll('.gamebox-page section[id]'));
 
     function updateActive() {
@@ -367,6 +367,6 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 <?php
-// 引入底部
+// Include footer
 include 'includes/footer.php';
 ?>

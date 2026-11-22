@@ -9,7 +9,7 @@
  */
 
 
-// 這裡模擬從資料庫抓取資料。真實專案中，這裡會是呼叫 Model 類別的方法。
+// Simulated database fetch. In a real project, this would call a Model class method.
 return [
     'recommend_products' => [
         [
@@ -19,7 +19,7 @@ return [
             'img' => 'https://placehold.co/400x300/333/fff?text=ROG+RTX5080+Combo',
             'is_sale' => true
         ],
-        // ... (為節省篇幅，請將上一輪的陣列資料完整貼入這裡)
+        // ... (array data omitted for brevity; paste the full dataset from the previous iteration here)
     ],
     'new_products' => [
         [
