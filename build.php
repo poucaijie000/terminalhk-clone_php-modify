@@ -100,7 +100,7 @@ include 'includes/header.php';
         <div class="col-lg-6 p-4">
             <!-- Search bar at the top -->
             <div class="input-group mb-4">
-                <button class="btn btn-outline-secondary dropdown-toggle border-end-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #f8f9fa; color: #4a90e2;">
+                <button class="btn btn-outline-secondary dropdown-toggle border-end-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: var(--color-surface-alt); color: var(--color-primary-strong);">
                     <?php echo icon_svg('search', 'me-1'); ?> 推薦組合
                 </button>
                 <ul class="dropdown-menu">

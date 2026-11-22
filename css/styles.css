@@ -7,34 +7,57 @@
  * Site-wide styles for layout, navigation, product cards, forms and responsive breakpoints.
  */
 
+:root {
+    /* Colorhunt palette: #464B71 / #118AB2 / #7CD5C7 / #F2F2ED */
+    --color-brand: #464B71;
+    --color-primary: #118AB2;
+    --color-primary-strong: #0E7490;
+    --color-primary-dark: #0B667E;
+    --color-accent: #7CD5C7;
+    --color-accent-strong: #5FB8A6;
+    --color-bg: #F2F2ED;
+    --color-surface: #FFFFFF;
+    --color-surface-alt: #F2F2ED;
+    --color-text: #464B71;
+    --color-text-strong: #2B2F45;
+    --color-text-muted: #5D6074;
+    --color-text-subtle: #7A7D8C;
+    --color-border: #D9D9D2;
+    --color-border-strong: #C9C9C0;
+    --color-neutral-soft: #E8E8E1;
+    --color-success: #2F6F5E;
+    --color-danger: #B84C45;
+    --focus-ring: rgba(17, 138, 178, 0.25);
+}
+
 /* 預留空間，避免跳過去時元素緊貼螢幕頂部 */
 builder-section {
-    scroll-margin-top: 20px; 
+    scroll-margin-top: 20px;
 }
 
 /* --- 基礎設置 --- */
 body {
-    background-color: #f7f7f7;
+    background-color: var(--color-bg);
     font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
-    color: #333;
+    color: var(--color-text);
 }
 
 /* --- 頂部資訊欄 --- */
 .top-bar {
-    background-color: #fafafa;
+    background-color: var(--color-bg);
     font-size: 14px;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--color-border);
     padding: 8px 0;
 }
 .top-bar a {
-    color: #555;
+    color: var(--color-text-muted);
     text-decoration: none;
 }
 .top-bar a:hover {
-    color: #4a90e2;
+    color: var(--color-primary-strong);
 }
 .top-bar .icon-green {
-    color: #4CAF50;
+    color: var(--color-success);
     font-size: 16px;
     vertical-align: middle;
     margin-right: 4px;
@@ -42,14 +65,14 @@ body {
 
 /* --- 主頭部區塊 --- */
 .header-main {
-    background-color: #fff;
+    background-color: var(--color-surface);
     padding-top: 20px;
 }
 
 /* Logo 外框與對齊 */
 .logo-wrapper {
-    border-left: 1px solid #64b5f6; /* 淺藍色左邊框 */
-    border-bottom: 1px solid #64b5f6; /* 淺藍色底邊框 */
+    border-left: 1px solid var(--color-accent); /* 淺藍色左邊框 */
+    border-bottom: 1px solid var(--color-accent); /* 淺藍色底邊框 */
     padding: 10px 20px 15px 20px;
     display: flex;
     flex-direction: column;
@@ -66,7 +89,7 @@ body {
     margin-top: 8px;
     font-size: 20px;
     /* font-weight: bold; */
-    color: #808080;
+    color: var(--color-text-subtle);
     letter-spacing: 2px;
 }
 
@@ -74,14 +97,14 @@ body {
     margin-top: 8px;
     font-size: 20px;
     /* font-weight: bold; */
-    color: #4DA9E3;
+    color: var(--color-primary);
     letter-spacing: 2px;
 }
 
 
 /* 導航欄容器 (處理底線) */
 .nav-container {
-    border-bottom: 1px solid #64b5f6; /* 貫穿的淺藍底線 */
+    border-bottom: 1px solid var(--color-accent); /* 貫穿的淺藍底線 */
     display: flex;
     justify-content: flex-start;
     padding-left: 20px;
@@ -105,23 +128,23 @@ body {
     transform: translateY(-50%);
     height: 18px;
     width: 1px;
-    background-color: #dcdcdc;
+    background-color: var(--color-border);
 }
 
 .nav-menu .nav-link {
-    color: #333;
+    color: var(--color-text);
     font-size: 18px;
     padding: 10px 25px;
     font-weight: normal;
 }
 
 .nav-menu .nav-link:hover {
-    color: #4a90e2;
+    color: var(--color-primary-strong);
 }
 
 /* 選中狀態 (首頁) */
 .nav-menu .nav-link.active {
-    color: #4a90e2;
+    color: var(--color-primary-strong);
     font-weight: normal;
 }
 
@@ -133,7 +156,7 @@ body {
     left: 0;
     width: 100%;
     height: 4px;
-    background-color: #4a90e2;
+    background-color: var(--color-primary);
 }
 
 /* --- 搜尋與購物車區塊 --- */
@@ -144,7 +167,7 @@ body {
 }
 
 .search-input {
-    border: 1px solid #dcdcdc;
+    border: 1px solid var(--color-border);
     border-right: none;
     height: 48px;
     border-radius: 0;
@@ -153,11 +176,11 @@ body {
 
 .search-input:focus {
     box-shadow: none;
-    border-color: #64b5f6;
+    border-color: var(--color-accent);
 }
 
 .btn-search {
-    background-color: #5b9bd5;
+    background-color: var(--color-primary-strong);
     color: white;
     border: none;
     width: 60px;
@@ -167,12 +190,12 @@ body {
 }
 
 .btn-search:hover {
-    background-color: #4a90e2;
+    background-color: var(--color-primary-dark);
     color: white;
 }
 
 .btn-cart {
-    background-color: #5b9bd5;
+    background-color: var(--color-primary-strong);
     color: white;
     height: 48px;
     border-radius: 0;
@@ -184,14 +207,14 @@ body {
 }
 
 .btn-cart:hover {
-    background-color: #4a90e2;
+    background-color: var(--color-primary-dark);
     color: white;
 }
 
 /* --- 首頁區塊標題 --- */
 .section-title {
     font-size: 22px;
-    color: #555;
+    color: var(--color-text-muted);
     font-weight: normal;
 }
 
@@ -206,7 +229,7 @@ body {
 /* 推薦產品的標題 (限制兩行，超出顯示省略號) */
 .product-title {
     font-size: 15px;
-    color: #333;
+    color: var(--color-text);
     line-height: 1.5;
     /* 以下是讓文字最多顯示兩行的 CSS */
     display: -webkit-box;
@@ -264,7 +287,7 @@ body {
 /* 放大文字 */
 .floating-chat .chat-text {
     font-size: 13px; /* 原本是 11px，加大到 13px */
-    color: #333;
+    color: var(--color-text);
     /* font-weight: bold; */
 }
 
@@ -279,7 +302,7 @@ body {
 
 /* 左側分類選單 */
 .category-menu li {
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--color-border);
 }
 .category-menu li:last-child {
     border-bottom: none;
@@ -291,7 +314,7 @@ body {
     transition: color 0.2s;
 }
 .category-menu li a:hover {
-    color: #4a90e2 !important;
+    color: var(--color-primary-strong) !important;
 }
 
 /* 右側網格項目 */
@@ -301,7 +324,7 @@ body {
     transition: transform 0.3s;
 }
 .grid-item {
-    border-bottom: 1px dashed #e0e0e0; /* 虛線分隔 */
+    border-bottom: 1px dashed var(--color-border); /* 虛線分隔 */
 }
 .grid-item:hover .category-img {
     transform: scale(1.05); /* 懸停時圖片微放大 */
@@ -321,7 +344,7 @@ body {
 /* ========================================= */
 .login-dropdown {
     width: 320px; /* 控制下拉框的寬度 */
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--color-border);
     border-radius: 4px;
     margin-top: 8px !important; /* 與上方文字的距離 */
 }
@@ -329,19 +352,19 @@ body {
 /* 下拉選單內的輸入框 */
 .login-dropdown .form-control {
     border-radius: 4px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-border-strong);
     padding: 8px 12px;
     font-size: 15px;
 }
 
 .login-dropdown .form-control:focus {
-    border-color: #5b9bd5;
-    box-shadow: 0 0 0 0.2rem rgba(91, 155, 213, 0.25);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.2rem var(--focus-ring);
 }
 
 /* 登錄與註冊按鈕的顏色 */
 .btn-login {
-    background-color: #5b9bd5; /* 與你網站主色調一致 */
+    background-color: var(--color-primary-strong); /* 與你網站主色調一致 */
     color: white;
     border: none;
     border-radius: 2px;
@@ -350,7 +373,7 @@ body {
 }
 
 .btn-login:hover {
-    background-color: #4a90e2;
+    background-color: var(--color-primary-dark);
     color: white;
 }
 
@@ -365,7 +388,7 @@ body {
 
 /* 左側零件搜尋框 (讓外觀看起來像純文字) */
 .search-part input::placeholder {
-    color: #888;
+    color: var(--color-text-subtle);
 }
 .search-part input:focus {
     background-color: transparent !important;
@@ -373,16 +396,16 @@ body {
 
 /* 左側「加入購物車」按鈕 (淺綠色) */
 .btn-add-cart {
-    background-color: #97d19e; /* 截圖中的淺綠色 */
-    color: white;
+    background-color: var(--color-accent);
+    color: var(--color-text-strong);
     border: none;
     border-radius: 2px;
     font-size: 15px;
     transition: background-color 0.2s;
 }
 .btn-add-cart:hover {
-    background-color: #7cb884;
-    color: white;
+    background-color: var(--color-accent-strong);
+    color: var(--color-text-strong);
 }
 
 /* 右側推薦列表滑鼠懸停效果 */
@@ -390,7 +413,7 @@ body {
     transition: background-color 0.2s;
 }
 .recommend-item:hover {
-    background-color: #f8f9fa;
+    background-color: var(--color-surface-alt);
 }
 .recommend-item a {
     text-decoration: none;
@@ -399,16 +422,16 @@ body {
 
 /* 右側頂部搜尋欄微調 */
 .input-group .btn-outline-secondary {
-    border-color: #ced4da;
-    color: #4a90e2 !important;
+    border-color: var(--color-border);
+    color: var(--color-primary-strong) !important;
 }
 .input-group .btn-outline-secondary:hover {
-    background-color: #f8f9fa;
-    color: #357abd !important;
+    background-color: var(--color-surface-alt);
+    color: var(--color-primary-dark) !important;
 }
 .input-group .form-control:focus {
     box-shadow: none;
-    border-color: #ced4da;
+    border-color: var(--color-border);
 }
 
 /* FAQ 區域微調 */
@@ -416,7 +439,7 @@ body {
     margin-bottom: 1.5rem;
 }
 .faq-content a {
-    color: #4a90e2;
+    color: var(--color-primary-strong);
 }
 
 /* ========================================= */
@@ -429,7 +452,7 @@ body {
 }
 .contact-menu li a {
     font-size: 18px;
-    color: #333;
+    color: var(--color-text);
     display: inline-block;
     padding-bottom: 5px;
     border-bottom: 1px solid transparent;
@@ -437,25 +460,25 @@ body {
 }
 .contact-menu li a:hover,
 .contact-menu li a.active {
-    color: #4a90e2; /* 啟用狀態與懸停的藍色 */
-    border-bottom: 1px solid #e0e0e0;
+    color: var(--color-primary-strong); /* 啟用狀態與懸停的藍色 */
+    border-bottom: 1px solid var(--color-border);
     width: 100%; /* 讓底線撐滿 */
 }
 
 /* 表單焦點顏色優化 */
 .form-control:focus {
-    border-color: #4a90e2;
-    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+    border-color: var(--color-primary-strong);
+    box-shadow: 0 0 0 0.2rem var(--focus-ring);
 }
 
 /* 提交按鈕顏色 (與網站主色調一致) */
 .btn-primary {
-    background-color: #5b9bd5;
-    border-color: #5b9bd5;
+    background-color: var(--color-primary-strong);
+    border-color: var(--color-primary-strong);
 }
 .btn-primary:hover {
-    background-color: #4a90e2;
-    border-color: #4a90e2;
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
 }
 
 /* 調整表單 Label 的垂直對齊 (避免跟 Input 對不齊) */
@@ -470,7 +493,7 @@ body {
 }
 .contact-menu li a {
     font-size: 18px;
-    color: #333;
+    color: var(--color-text);
     display: inline-block;
     padding-bottom: 5px;
     border-bottom: 1px solid transparent;
@@ -478,9 +501,9 @@ body {
 }
 .contact-menu li a:hover,
 .contact-menu li a.active {
-    color: #4a90e2; 
-    border-bottom: 1px solid #e0e0e0;
-    width: 100%; 
+    color: var(--color-primary-strong);
+    border-bottom: 1px solid var(--color-border);
+    width: 100%;
 }
 
 /* FAQ 標題微調 */
@@ -493,7 +516,7 @@ body {
 /* --- GameBox 頁面專用樣式 --- */
 /* ========================================= */
 .gamebox-page {
-    background-color: #fff;
+    background-color: var(--color-surface);
 }
 
 .gamebox-page .gamebox-container {
@@ -511,7 +534,7 @@ body {
 .game-menu-title {
     font-size: 24px;
     font-weight: 300;
-    color: #333;
+    color: var(--color-text);
 }
 
 .game-menu-links {
@@ -519,7 +542,7 @@ body {
 }
 
 .game-menu-links a {
-    color: #333;
+    color: var(--color-text);
     text-decoration: none;
     font-size: 16px;
     transition: color 0.2s;
@@ -527,7 +550,7 @@ body {
 
 .game-menu-links a:hover,
 .game-menu-links a.active {
-    color: #4a90e2;
+    color: var(--color-primary-strong);
 }
 
 .game-buy-btn {
@@ -538,7 +561,7 @@ body {
 /* 分隔線與區塊 */
 .gamebox-page hr.game-hr {
     border: 0;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--color-border);
     opacity: 1;
     margin: 0;
 }
@@ -555,20 +578,20 @@ body {
 .gamebox-page h1.game-h1 {
     font-size: 52px;
     font-weight: 300;
-    color: #333;
+    color: var(--color-text);
 }
 
 .gamebox-page h2.game-h2 {
     font-size: 32px;
     font-weight: 300;
-    color: #333;
+    color: var(--color-text);
     margin-bottom: 10px;
 }
 
 .game-subtitle {
     font-size: 20px;
     font-weight: 300;
-    color: #6d6d6d;
+    color: var(--color-text-muted);
     margin-bottom: 24px;
 }
 
@@ -577,7 +600,7 @@ body {
     margin: 0 auto 30px;
     font-size: 15px;
     line-height: 2;
-    color: #333;
+    color: var(--color-text);
 }
 
 /* 圖片 */
@@ -604,7 +627,7 @@ body {
 .feature-text p {
     font-size: 15px;
     line-height: 2;
-    color: #333;
+    color: var(--color-text);
 }
 
 .feature-img {
@@ -621,7 +644,7 @@ body {
 
 .speed-title {
     font-size: 15px;
-    color: #333;
+    color: var(--color-text);
     margin-bottom: 18px;
 }
 
@@ -631,13 +654,13 @@ body {
 
 .speed-label {
     font-size: 15px;
-    color: #333;
+    color: var(--color-text);
 }
 
 .speed-compare .progress {
     height: 24px;
     border-radius: 0;
-    background-color: #eee;
+    background-color: var(--color-neutral-soft);
 }
 
 .speed-compare .progress-bar {
@@ -646,16 +669,16 @@ body {
 }
 
 .speed-compare .progress-bar-success {
-    background-color: #5cb85c;
+    background-color: var(--color-success);
 }
 
 .speed-compare .progress-bar-danger {
-    background-color: #d9534f;
+    background-color: var(--color-danger);
 }
 
 /* 產品比較卡 */
 .compare-card {
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--color-border);
     border-radius: 0;
 }
 
@@ -676,13 +699,13 @@ body {
 .compare-name {
     font-size: 24px;
     font-weight: 300;
-    color: #333;
+    color: var(--color-text);
 }
 
 .compare-price {
     font-size: 28px;
     font-weight: 300;
-    color: #333;
+    color: var(--color-text);
     margin-bottom: 16px;
 }
 
@@ -692,7 +715,7 @@ body {
     margin: 0 0 20px;
     font-size: 14px;
     line-height: 2;
-    color: #555;
+    color: var(--color-text-muted);
 }
 
 /* 技術規格表 */
@@ -709,13 +732,13 @@ body {
     text-align: left;
     vertical-align: top;
     padding: 8px 20px 28px 10px;
-    border-top: 1px solid #dfdfdf;
+    border-top: 1px solid var(--color-border);
 }
 
 .game-spec-table th {
     width: 14%;
     font-size: 18px;
-    color: #333;
+    color: var(--color-text);
 }
 
 .game-spec-table .spec-spacer {
@@ -757,7 +780,7 @@ body {
 
 .game-spec-table .spec-upgrade {
     display: block;
-    color: #888;
+    color: var(--color-text-subtle);
     margin-top: 18px;
 }
 
@@ -967,5 +990,5 @@ body {
 
 /* GameBox 技術規格：兩款產品之間的垂直分隔線 */
 .gamebox-page #spec table td:nth-last-child(2) {
-  border-right: 1px solid #dee2e6;
+  border-right: 1px solid var(--color-border);
 }
