@@ -1063,6 +1063,26 @@ body {
         text-align: center;
     }
 
+    .logo-wrapper img {
+        max-height: 48px;
+    }
+
+    .floating-chat {
+        width: 72px;
+        height: 72px;
+        right: 12px;
+        bottom: 12px;
+    }
+
+    .floating-chat .chat-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .floating-chat .chat-text {
+        font-size: 10px;
+    }
+
     .btn-cart {
         padding: 0 10px;
         font-size: 13px;
@@ -1082,6 +1102,11 @@ body {
     .header-main .col-lg-2,
     .header-main .col-lg-10 {
         width: 100%;
+    }
+
+    /* Logo 區塊不再被右欄拉高，避免 header 出現大段空白 */
+    .logo-wrapper {
+        height: auto;
     }
 
     /* 六個導航項在窄容器內改為 3×2，而不是 5+1 */
