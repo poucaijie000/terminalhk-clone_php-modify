@@ -236,7 +236,7 @@ $hotItems = array_slice($hotItems, 0, 5);
         <?php if ($newItems === []): ?>
             <div class="alert alert-info">暫無新品。</div>
         <?php else: ?>
-            <div class="row g-0 border-top border-start">
+            <div class="row g-0 border-top border-start product-row-five">
                 <?php foreach ($newItems as $item): ?>
                     <div class="col">
                         <div class="card h-100 border-0 border-end border-bottom rounded-0">
@@ -251,7 +251,7 @@ $hotItems = array_slice($hotItems, 0, 5);
                                 </div>
                             </a>
                             <div class="card-body pt-0 px-3 pb-3">
-                                <p class="card-text text-dark small mb-1">
+                                <p class="card-text text-dark small product-name mb-1">
                                     <a href="<?php echo e($itemUrl($item)); ?>" class="text-dark text-decoration-none">
                                         <?php echo e((string) $item->name); ?>
                                     </a>
@@ -274,7 +274,7 @@ $hotItems = array_slice($hotItems, 0, 5);
         <?php if ($hotItems === []): ?>
             <div class="alert alert-info">暫無熱賣商品。</div>
         <?php else: ?>
-            <div class="row g-0 border-top border-start">
+            <div class="row g-0 border-top border-start product-row-five">
                 <?php foreach ($hotItems as $item): ?>
                     <?php $oldPrice = (float) $item->old_price; ?>
                     <div class="col">
@@ -290,7 +290,7 @@ $hotItems = array_slice($hotItems, 0, 5);
                                 </div>
                             </a>
                             <div class="card-body pt-0 px-3 pb-3 d-flex flex-column">
-                                <h5 class="card-title product-title" style="font-size: 14px;">
+                                <h5 class="card-title product-title product-name" style="font-size: 14px;">
                                     <a href="<?php echo e($itemUrl($item)); ?>" class="text-dark text-decoration-none">
                                         <?php echo e((string) $item->name); ?>
                                     </a>

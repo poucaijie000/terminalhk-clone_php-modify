@@ -11,7 +11,7 @@
     <!-- === Service features === -->
     <div class="bg-white border-top border-bottom py-4 mt-5">
         <div class="container">
-            <div class="row text-center">
+            <div class="row text-center service-features">
                 <!-- Item 1: free delivery -->
                 <div class="col d-flex flex-column align-items-center">
                     <img src="img/footer/help_delivery.png" alt="免費送貨" style="height: 40px; object-fit: contain;" class="mb-2">
@@ -47,9 +47,9 @@
 
     <!-- === Footer link columns === -->
         <!-- === Footer link columns === -->
-    <footer class="bg-white pt-5 pb-5" style="padding-bottom: 120px !important;">
+    <footer class="bg-white pt-5 pb-5 site-footer">
         <div class="container">
-            <div class="row text-center mb-4">
+            <div class="row text-center footer-links mb-4">
                 <!-- Column 1 -->
                 <!-- d-flex flex-column align-items-center centres the whole block -->
                 <div class="col d-flex flex-column align-items-center">

@@ -908,25 +908,28 @@ body {
         margin-top: 4px;
     }
 
-    /* 主導航：可橫向滑動，不換行 */
+    /* 主導航：換行排列，避免最後一項被裁切 */
     .nav-container {
         padding-left: 0;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-    }
-
-    .nav-container::-webkit-scrollbar {
-        display: none;
+        overflow-x: visible;
     }
 
     .nav-menu {
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .nav-menu .nav-item {
+        flex: 0 0 auto;
+    }
+
+    .nav-menu .nav-item:not(:last-child)::after {
+        display: none;
     }
 
     .nav-menu .nav-link {
-        padding: 8px 14px;
-        font-size: 15px;
+        padding: 8px 12px;
+        font-size: 14px;
         white-space: nowrap;
     }
 
@@ -959,11 +962,105 @@ body {
         font-size: 14px;
     }
 }
+/* Desktop footer keeps clearance for the floating chat button */
+.site-footer {
+    padding-bottom: 120px !important;
+}
+
+/* Footer / service strip / side cards on phone */
+@media (max-width: 767.98px) {
+    .side-card .card-img-top {
+        width: auto;
+        max-width: 100%;
+        max-height: 150px;
+        object-fit: contain;
+    }
+
+    .service-features {
+        row-gap: 1rem;
+    }
+
+    .service-features > .col {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: .65rem .75rem;
+    }
+
+    .service-features > .col:last-child {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+
+    .service-features span {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .footer-links {
+        row-gap: .5rem;
+    }
+
+    .footer-links > .col {
+        flex: 0 0 50%;
+        max-width: 50%;
+        align-items: flex-start !important;
+        padding: .5rem 1rem;
+    }
+
+    .footer-links ul {
+        width: 100%;
+        text-align: left !important;
+    }
+
+    .footer-links a {
+        font-size: 13px;
+    }
+
+    .site-footer {
+        padding-bottom: 160px !important;
+    }
+
+    .floating-chat {
+        width: 88px;
+        height: 88px;
+        right: 16px;
+        bottom: 16px;
+    }
+
+    .floating-chat .chat-icon {
+        width: 52px;
+        height: 52px;
+    }
+
+    .floating-chat .chat-text {
+        font-size: 11px;
+    }
+}
+
+/* Keep Bootstrap utility colours inside the selected palette */
+.text-dark {
+    color: var(--color-text) !important;
+}
+
+.text-muted {
+    color: var(--color-text-muted) !important;
+}
+
+.text-danger {
+    color: var(--color-danger) !important;
+}
+
+.bg-danger {
+    background-color: var(--color-danger) !important;
+}
+
 /* 小屏手機（<=480px）再收緊一級 */
 @media (max-width: 479.98px) {
     .nav-menu .nav-link {
-        padding: 8px 10px;
+        display: block;
+        padding: 8px 4px;
         font-size: 13px;
+        text-align: center;
     }
 
     .btn-cart {
@@ -986,9 +1083,99 @@ body {
     .header-main .col-lg-10 {
         width: 100%;
     }
+
+    /* 六個導航項在窄容器內改為 3×2，而不是 5+1 */
+    .nav-menu .nav-item {
+        flex: 0 0 33.3333%;
+    }
+
+    .nav-menu .nav-link {
+        display: block;
+        text-align: center;
+    }
 }
 
 /* GameBox 技術規格：兩款產品之間的垂直分隔線 */
 .gamebox-page #spec table td:nth-last-child(2) {
   border-right: 1px solid var(--color-border);
+}
+
+/* New-arrival / hot-sale cards: allow three lines and keep prices aligned */
+.product-name {
+    font-size: 14px;
+    line-height: 1.45;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: .5rem;
+}
+
+/* 5-card rows stay readable instead of shrinking to five narrow columns */
+@media (max-width: 991.98px) {
+    .product-row-five > .col {
+        flex: 0 0 33.3333%;
+        max-width: 33.3333%;
+    }
+
+    .product-row-five .product-img {
+        height: 140px;
+    }
+
+    .product-row-five .card-body {
+        display: flex;
+        flex-direction: column;
+        padding: .75rem .75rem 1rem !important;
+    }
+
+    .product-row-five .product-name {
+        flex: 1 1 auto;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .product-row-five > .col {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .product-row-five .product-img {
+        height: 130px;
+    }
+
+    .product-row-five .product-name {
+        font-size: 13px;
+    }
+
+    .product-row-five .text-danger.fs-5 {
+        font-size: 1rem !important;
+    }
+
+    .product-row-five .badge {
+        font-size: .65rem;
+        padding: .2rem .35rem !important;
+    }
+
+    .product-row-five .text-decoration-line-through {
+        font-size: .75rem;
+    }
+
+    .product-row-five .card-body > .d-flex {
+        flex-wrap: wrap;
+        gap: .35rem !important;
+    }
+
+    /* 五件產品在兩欄時，最後一件置中，避免右邊出現半個空位 */
+    .product-row-five > .col:last-child:nth-child(odd) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 359.98px) {
+    .product-row-five > .col {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
 }
